@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>信息显示</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            font-size: 14px;
+            width: 80%;
+            margin: auto;
+        }
+        table, th, td{
+            border: 1px solid darkslategray;
+            padding: 10px;
+        }
+    </style>
+</head>
+<script>
+    function download1() {
+        window.location.href='/download'
+    }
+</script>
+<body>
+<div style="text-align: center">
+<!--    <h1 th:text="${h}"></h1>-->
+<!--    <h1 th:text="${h2}"></h1>-->
+    <span style="font-size: 30px; color: darkslategray; margin-left: 90px">交大理工学生名单</span>
+    <a th:href="@{/add}">添加信息</a>
+    <a th:href="@{/print}">打印报表</a>
+    <button id="xz" onclick="download1()">下载报表</button>
+    <hr/>
+    <table>
+        <tr>
+            <th>序号</th>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>操作</th>
+        </tr>
+        <tr th:each="user:${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.number}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.gender}"></td>
+            <td th:text="${user.age}"></td>
+            <td>
+                <a th:href="@{/del(id=${user.id})}">删除</a>
+                <a th:href="@{/update(id=${user.id})}">更新</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

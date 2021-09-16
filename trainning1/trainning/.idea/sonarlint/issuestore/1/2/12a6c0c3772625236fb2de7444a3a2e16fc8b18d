@@ -1,0 +1,20 @@
+
+cWeb:DoctypePresenceCheck
+":Insert a <!DOCTYPE> declaration to before this <html> tag.(œ÷Ãûÿÿÿÿ
+Z	Web:S5254
+"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷Ãûÿÿÿÿ
+MWeb:TableWithoutCaptionCheck=" Add a description to this table.(­ã’Òÿÿÿÿÿ
+l Web:TableHeaderHasIdOrScopeCheck@";Add either an 'id' or a 'scope' attribute to this <th> tag.(àóú…ıÿÿÿÿ
+l Web:TableHeaderHasIdOrScopeCheckA";Add either an 'id' or a 'scope' attribute to this <th> tag.(ˆŸí…ÿÿÿÿÿ
+l Web:TableHeaderHasIdOrScopeCheckB";Add either an 'id' or a 'scope' attribute to this <th> tag.(ÇÆ»êÿÿÿÿÿ
+l Web:TableHeaderHasIdOrScopeCheckC";Add either an 'id' or a 'scope' attribute to this <th> tag.(¾Œ÷ ÿÿÿÿÿ
+g Web:TableHeaderHasIdOrScopeCheckD";Add either an 'id' or a 'scope' attribute to this <th> tag.(û‚èŒ
+g Web:TableHeaderHasIdOrScopeCheckE";Add either an 'id' or a 'scope' attribute to this <th> tag.(¤Œÿœ
+f Web:TableHeaderHasIdOrScopeCheckF";Add either an 'id' or a 'scope' attribute to this <th> tag.(Ñ÷â
+l Web:TableHeaderHasIdOrScopeCheckG";Add either an 'id' or a 'scope' attribute to this <th> tag.(¯İÂ¢ùÿÿÿÿ
+HWeb:BoldAndItalicTagsCheckV"Replace this <i> tag by <em>.(Áí„ªùÿÿÿÿ
+CWeb:BoldAndItalicTagsCheckW"Replace this <i> tag by <em>.(³ùûƒ
+CWeb:BoldAndItalicTagsChecke"Replace this <i> tag by <em>.(ê÷˜ 
+HWeb:BoldAndItalicTagsCheckj"Replace this <i> tag by <em>.(ô×îµüÿÿÿÿ
+HWeb:BoldAndItalicTagsChecku"Replace this <i> tag by <em>.(¼èóªÿÿÿÿÿ
+HWeb:BoldAndItalicTagsCheckz"Replace this <i> tag by <em>.(“„—Õıÿÿÿÿ

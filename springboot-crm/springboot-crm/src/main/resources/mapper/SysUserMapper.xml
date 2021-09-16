@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jad.mapper.SysUserMapper">
+
+    <select id="findSysUserByAccountAndPassword" resultType="sysuser" parameterType="sysuser">
+        select * from sys_user where account=#{account} and password=#{password}
+   </select>
+
+    <select id="findSysUserByAccount" resultType="sysuser" parameterType="String">
+        select * from sys_user where account=#{account}
+    </select>
+
+    <update id="changePassword" parameterType="sysuser">
+        update sys_user set password=#{password} where id=#{id}
+    </update>
+
+    <select id="findAll" resultType="sysuser">
+        select * from sys_user
+    </select>
+
+    <delete id="delete" parameterType="String">
+        delete from sys_user where id = #{id}
+    </delete>
+
+    <select id="findSysUserByID">
+        select * from sys_user where id = #{id}
+    </select>
+
+    <insert id="save" parameterType="sysuser">
+        insert into sys_user values(#{id},#{account},#{password},#{name},#{photo},#{role})
+    </insert>
+
+    <update id="update" parameterType="sysuser">
+        update sys_user set NAME=#{name},account=#{account},password=#{password},photo=#{photo},role=#{role} where ID =#{id}
+    </update>
+</mapper>

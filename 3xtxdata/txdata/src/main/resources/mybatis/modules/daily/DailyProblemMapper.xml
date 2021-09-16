@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.txdata.modules.daily.dao.DailyProblemDao">
+
+    <sql id="dailyProblemColumns">
+    	a.`Id` AS "id",
+    	a.`Type` AS "type",
+    	a.`Name` AS "name",
+    	a.`record_time` AS "recordTime",
+    	a.`Support` AS "support",
+    	a.`description` AS "description"
+    </sql>
+    
+    <sql id="leftJion">
+    </sql>
+    
+	<select id="get" resultType="DailyProblemDO">
+		SELECT  
+		<include refid="dailyProblemColumns"/>
+		FROM t_daily_problem a
+		<include refid="leftJion"/>
+		WHERE a.Id = #{value}
+	</select>
+
+	<select id="list" resultType="DailyProblemDO">
+		SELECT 
+        <include refid="dailyProblemColumns"/>
+        FROM t_daily_problem a
+        <include refid="leftJion"/>
+        <where> 
+           <if test="entity.id != null and entity.id != ''"> 
+		  		AND a.Id = #{entity.id}
+		   </if>		
+           <if test="entity.type != null and entity.type != ''"> 
+		  		AND a.Type = #{entity.type}
+		   </if>		
+           <if test="entity.name != null and entity.name != ''"> 
+		  		AND a.Name = #{entity.name}
+		   </if>		
+           <if test="entity.recordTime != null and entity.recordTime != ''"> 
+		  		AND a.record_time = #{entity.recordTime}
+		   </if>		
+           <if test="entity.support != null and entity.support != ''"> 
+		  		AND a.Support = #{entity.support}
+		   </if>		
+           <if test="entity.description != null and entity.description != ''"> 
+		  		AND a.description = #{entity.description}
+		   </if>		
+		</where>
+        ORDER BY a.update_date DESC,a.Id DESC
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO t_daily_problem
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+					<if test="id != null">`Id`,</if>
+					<if test="type != null">`Type`,</if>
+					<if test="name != null">`Name`,</if>
+					<if test="recordTime != null">`record_time`,</if>
+					<if test="support != null">`Support`,</if>
+					<if test="description != null">`description`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id != null">#{id},</if>
+			<if test="type != null">#{type},</if>
+			<if test="name != null">#{name},</if>
+			<if test="recordTime != null">#{recordTime},</if>
+			<if test="support != null">#{support},</if>
+			<if test="description != null">#{description},</if>
+		</trim>
+	</insert>
+	 
+	<update id="update">
+		UPDATE t_daily_problem 
+		<set>
+			<if test="type != null">`Type` = #{type}</if>
+			<if test="name != null">`Name` = #{name}</if>
+			<if test="recordTime != null">`record_time` = #{recordTime}</if>
+			<if test="support != null">`Support` = #{support}</if>
+			<if test="description != null">`description` = #{description}</if>
+		</set>
+		WHERE Id = #{id} 
+	</update>
+	
+	<update id="remove">
+		UPDATE t_daily_problem 
+		SET `del_flag` = '1'
+		WHERE Id = #{value}
+	</update>
+	
+	<update id="batchRemove">
+		UPDATE t_daily_problem 
+		SET `del_flag` = '1'
+		WHERE Id IN 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM t_daily_problem 
+		WHERE Id = #{value}
+	</delete>
+	
+	<delete id="batchDelete">
+		DELETE FROM t_daily_problem 
+		WHERE Id IN 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+	
+	<insert id="batchInsert">
+		INSERT INTO t_daily_problem
+		(
+			`Id`,
+			`Type`,
+			`Name`,
+			`record_time`,
+			`Support`,
+			`description`
+		)
+		VALUES
+		<foreach item="dailyProblem" collection="list" separator=",">
+		(
+			#{dailyProblem.id},
+			#{dailyProblem.type},
+			#{dailyProblem.name},
+			#{dailyProblem.recordTime},
+			#{dailyProblem.support},
+			#{dailyProblem.description}
+		)
+		</foreach>
+	</insert>
+	 
+	<update id="batchUpdate">
+		<foreach item="dailyProblem" collection="list" separator=";">
+			UPDATE t_daily_problem 
+			<set>
+				<if test="dailyProblem.type != null">`Type` = #{dailyProblem.type},</if>
+				<if test="dailyProblem.name != null">`Name` = #{dailyProblem.name},</if>
+				<if test="dailyProblem.recordTime != null">`record_time` = #{dailyProblem.recordTime},</if>
+				<if test="dailyProblem.support != null">`Support` = #{dailyProblem.support},</if>
+				<if test="dailyProblem.description != null">`description` = #{dailyProblem.description}</if>
+			</set>
+			WHERE Id = #{dailyProblem.id} 
+		</foreach>
+	</update>
+	
+	<update id="updateByWhere">
+		UPDATE t_daily_problem 
+		<set>
+			<if test="param.type != null">`Type` = #{param.type},</if>
+			<if test="param.name != null">`Name` = #{param.name},</if>
+			<if test="param.recordTime != null">`record_time` = #{param.recordTime},</if>
+			<if test="param.support != null">`Support` = #{param.support},</if>
+			<if test="param.description != null">`description` = #{param.description}</if>
+		</set>
+		<where> 
+           <if test="where.id != null and where.id != ''"> 
+		  		AND Id = #{where.id}
+		   </if>
+           <if test="where.type != null and where.type != ''"> 
+		  		AND Type = #{where.type}
+		   </if>
+           <if test="where.name != null and where.name != ''"> 
+		  		AND Name = #{where.name}
+		   </if>
+           <if test="where.recordTime != null and where.recordTime != ''"> 
+		  		AND record_time = #{where.recordTime}
+		   </if>
+           <if test="where.support != null and where.support != ''"> 
+		  		AND Support = #{where.support}
+		   </if>
+           <if test="where.description != null and where.description != ''"> 
+		  		AND description = #{where.description}
+		   </if>
+		</where>
+	</update>
+	
+	<update id="removeByWhere">
+		UPDATE t_daily_problem 
+		SET `del_flag` = '1'
+		<where> 
+           <if test="where.id != null and where.id != ''"> 
+		  		AND Id = #{where.id}
+		   </if>
+           <if test="where.type != null and where.type != ''"> 
+		  		AND Type = #{where.type}
+		   </if>
+           <if test="where.name != null and where.name != ''"> 
+		  		AND Name = #{where.name}
+		   </if>
+           <if test="where.recordTime != null and where.recordTime != ''"> 
+		  		AND record_time = #{where.recordTime}
+		   </if>
+           <if test="where.support != null and where.support != ''"> 
+		  		AND Support = #{where.support}
+		   </if>
+           <if test="where.description != null and where.description != ''"> 
+		  		AND description = #{where.description}
+		   </if>
+		</where>
+	</update>
+	
+	<delete id="deleteByWhere">
+		DELETE FROM t_daily_problem 
+		<where> 
+           <if test="where.id != null and where.id != ''"> 
+		  		AND Id = #{where.id}
+		   </if>
+           <if test="where.type != null and where.type != ''"> 
+		  		AND Type = #{where.type}
+		   </if>
+           <if test="where.name != null and where.name != ''"> 
+		  		AND Name = #{where.name}
+		   </if>
+           <if test="where.recordTime != null and where.recordTime != ''"> 
+		  		AND record_time = #{where.recordTime}
+		   </if>
+           <if test="where.support != null and where.support != ''"> 
+		  		AND Support = #{where.support}
+		   </if>
+           <if test="where.description != null and where.description != ''"> 
+		  		AND description = #{where.description}
+		   </if>
+		</where>
+	</delete>
+</mapper>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" class="app-ui">
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <!-- Document title -->
+    <title></title>
+
+    <meta name="description" content="AppUI - Admin Dashboard Template & UI Framework" />
+    <meta name="author" content="rustheme" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" th:href="@{/static/assets/img/favicons/apple-touch-icon.png}" />
+    <link rel="icon" th:href="@{/static/assets/img/favicons/favicon.ico}" />
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,900%7CRoboto+Slab:300,400%7CRoboto+Mono:400" />
+
+    <!-- AppUI CSS stylesheets -->
+    <link rel="stylesheet" id="css-font-awesome" th:href="@{/static/assets/css/font-awesome.css}" />
+    <link rel="stylesheet" id="css-ionicons" th:href="@{/static/assets/css/ionicons.css}" />
+    <link rel="stylesheet" id="css-bootstrap" th:href="@{/static/assets/css/bootstrap.css}" />
+    <link rel="stylesheet" id="css-app" th:href="@{/static/assets/css/app.css}" />
+    <link rel="stylesheet" id="css-app-custom" th:href="@{/static/assets/css/app-custom.css}" />
+    <!-- End Stylesheets -->
+</head>
+
+<body class="app-ui layout-has-drawer layout-has-fixed-header" style="overflow: hidden;scroll:no">
+<div class="app-layout-canvas">
+    <div class="app-layout-container">
+
+        <!-- Drawer -->
+        <aside class="app-layout-drawer">
+
+            <!-- Drawer scroll area -->
+            <div class="app-layout-drawer-scroll">
+                <!-- Drawer logo -->
+                <div id="logo" class="drawer-header">
+                    <a th:href="@{/templates/index.html}"><img class="img-responsive" th:src="@{/static/assets/img/logo/logo-backend.png}" title="AppUI" alt="AppUI" /></a>
+                </div>
+
+                <!-- Drawer navigation -->
+                <nav class="drawer-main">
+                    <ul class="nav nav-drawer">
+
+                        <li>
+                            <i class="ion-ios-calculator-outline"></i><a href="customer/list/1" target="main">客户管理</a>
+                        </li>
+                        <li>
+                            <i class="ion-ios-calculator-outline"></i><a href="sysUser/list/1" target="main">用户管理</a>
+                        </li>
+                        <li>
+                            <i class="ion-ios-calculator-outline"></i><a href="city/findAll" target="main">城市管理</a>
+                        </li>
+                        <li>
+                            <i class="ion-ios-calculator-outline"></i><a href="log/list/1" target="main">日志管理</a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- End drawer -->
+
+        <!-- Header -->
+        <header class="app-layout-header">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <div class="collapse navbar-collapse" id="header-navbar-collapse">
+                        <!-- .navbar-left -->
+                        <ul class="nav navbar-nav navbar-right navbar-toolbar hidden-sm hidden-xs">
+
+                            <li class="dropdown dropdown-profile">
+                                <a href="javascript:void(0)" data-toggle="dropdown">
+                                    <span class="m-r-sm" th:text="${session.sysUser.name}"><span class="caret"></span></span>
+                                    <img class="img-avatar img-avatar-48" th:src="@{/static/assets/img/avatars/avatar3.jpg}" alt="User profile pic" />
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a href="javascript:void(0)"  data-toggle="modal" data-target="#modal-normal" >修改密码</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" id="logout">退出</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- .navbar-right -->
+                    </div>
+                </div>
+                <!-- .container-fluid -->
+            </nav>
+            <!-- .navbar-default -->
+        </header>
+        <!-- End header -->
+
+        <main class="app-layout-content">
+            <iframe src="" name="main" width="100%" height="733" frameborder="0" style="overflow: hidden;scroll:no"></iframe>
+        </main>
+
+    </div>
+    <!-- .app-layout-container -->
+</div>
+<!-- .app-layout-canvas -->
+
+<!-- Apps Modal -->
+<!-- Opens from the button in the header -->
+
+
+<!-- Normal Modal -->
+<div class="modal" id="modal-normal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="card-header bg-green bg-inverse">
+                <h4>密码修改</h4>
+                <ul class="card-actions">
+                    <li>
+                        <button data-dismiss="modal" type="button"><i class="ion-close"></i></button>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-block">
+                <form action="changePassword" method="post">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">新密码</label>
+                        <div class="col-md-7">
+                            <input name="account" type="text" class="form-control" id="account" placeholder="请输入新密码" />
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">确认密码</label>
+                        <div class="col-md-7">
+                            <input name="password"  type="password" class="form-control"  id="password" placeholder="请确认密码" />
+                        </div>
+                    </div>
+                    <br><br>
+                    <button type="submit" class="btn btn-app btn-block" id="sub">修改</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Apps Modal -->
+
+
+
+<!-- AppUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock and App.js} -->
+<script th:src="@{/static/assets/js/core/jquery.min.js}"></script>
+<script th:src="@{/static/assets/js/core/bootstrap.min.js}"></script>
+<script th:src="@{/static/assets/js/core/jquery.slimscroll.min.js}"></script>
+<script th:src="@{/static/assets/js/core/jquery.scrollLock.min.js}"></script>
+<script th:src="@{/static/assets/js/core/jquery.placeholder.min.js}"></script>
+<script th:src="@{/static/assets/js/app.js}"></script>
+<script th:src="@{/static/assets/js/app-custom.js}"></script>
+
+
+
+<script>
+    var realUrl="[[@{/}]]";
+    $(function(){
+        $("#logout").click(function(){
+            if(confirm("您确定要退出吗?")){
+                location.href = realUrl+"logout";
+            }
+        });
+        /*App.initHelpers('slick');*/
+    });
+</script>
+
+</body>
+
+</html>

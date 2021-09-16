@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ca59a45e-fc3e-43c2-9d8b-a40d84c69cb1" name="Default Changelist" comment="提交">
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/aop/SysLogAop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/config/MvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/controller/CityController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/controller/LogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/controller/SysUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/dao/CityDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/dao/CustomerDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/dao/LogDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/dao/SysUserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/entity/City.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/entity/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/entity/Log.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/entity/SysUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/service/CityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/service/LogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/service/SysUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/service/impl/CityServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/service/impl/CustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/service/impl/LogServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/service/impl/SysUserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/utils/JedisPoolUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/mapper/CityDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/mapper/CustomerDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/mapper/LogDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/mapper/SysUserDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/app-custom.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/ionicons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/maps/app-custom.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/maps/app.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/maps/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/maps/font-awesome.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/maps/ionicons.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/ionicons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/ionicons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/ionicons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/ionicons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/favicons/apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/favicons/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/logo/logo-backend.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/logo/logo-frontend.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/misc/base_pages_profile_header_bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/misc/frontend_about1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/misc/frontend_about2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/misc/frontend_header_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/misc/frontend_home1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/misc/frontend_home2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/misc/frontend_home3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/misc/frontend_home4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/photos/photo1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/photos/photo2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/photos/photo3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/photos/photo4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/photos/photo5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/photos/photo6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/app-custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/core/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/core/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/core/jquery.placeholder.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/core/jquery.scrollLock.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/core/jquery.slimscroll.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/base_forms_validation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/base_forms_wizard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/base_js_charts_chartjs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/base_js_charts_flot.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/base_js_charts_sparkline.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/base_js_maps.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/base_tables_datatables.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/base_ui_progress.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/frontend_contact.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-colorpicker/img/bootstrap-colorpicker/alpha-horizontal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-colorpicker/img/bootstrap-colorpicker/alpha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-colorpicker/img/bootstrap-colorpicker/hue-horizontal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-colorpicker/img/bootstrap-colorpicker/hue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-colorpicker/img/bootstrap-colorpicker/saturation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-datepicker/bootstrap-datepicker3.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-notify/bootstrap-notify.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/chartjs/Chart.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/datatables/jquery.dataTables.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/datatables/jquery.dataTables.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/dropzonejs/dropzone.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/dropzonejs/dropzone.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/flot/jquery.flot.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/flot/jquery.flot.pie.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/flot/jquery.flot.resize.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/flot/jquery.flot.stack.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/fullcalendar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/fullcalendar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/fullcalendar.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/fullcalendar.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/fullcalendar.print.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/gcal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/gcal.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/lang-all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/moment.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/gmapsjs/gmaps.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/highlightjs/github-gist.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/highlightjs/highlight.pack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/jquery-tags-input/jquery.tagsinput.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/jquery-tags-input/jquery.tagsinput.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/jquery-ui/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/jquery-validation/jquery.validate.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/magnific-popup/magnific-popup.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/magnific-popup/magnific-popup.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/masked-inputs/jquery.maskedinput.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/select2/select2-bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/select2/select2.full.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/select2/select2.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/slick/ajax-loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/slick/fonts/slick.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/slick/fonts/slick.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/slick/fonts/slick.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/slick/fonts/slick.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/slick/slick-theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/slick/slick.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/slick/slick.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/sparkline/jquery.sparkline.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/templates/City/city_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/templates/Susses/sysUser_info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/templates/Susses/sysUser_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/templates/common.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/templates/common/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/templates/common/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/templates/customer/customer_add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/templates/customer/customer_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/templates/customer/sysUser_search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/templates/dateLog/log_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/templates/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MySpringboot/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MySpringboot/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MySpringboot/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MySpringboot/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MySpringboot/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MySpringboot/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../txdata/src/main/resources/mybatis/modules/daily/DailyArrangeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../txdata/src/main/resources/mybatis/modules/daily/DailyMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../txdata/src/main/resources/mybatis/modules/daily/DailyTaskMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MySpringboot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MySpringboot/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/controller/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/mapper/StudentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/mapper/StudentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/pojo/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/pojo/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/service/IStudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/service/IStudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/service/impl/StudentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/service/impl/StudentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MySpringboot/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../MySpringboot/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MySpringboot/src/main/resources/mapper/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MySpringboot/src/main/resources/mapper/StudentMapper.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="E:/apache-maven-3.6.0-bin/apache-maven-3.6.0" />
+        <option name="userSettingsFile" value="E:\apache-maven-3.6.0-bin\apache-maven-3.6.0\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1xI7TnGbK18BeNst3ptx7qJfX4L" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite&#10;mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/spring cloud-provider-hystrix-8001/src/main/resources" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.46242172" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="spring.boot" />
+    <property name="settings.editor.splitter.proportion" value="0.22132616" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\IDEA2020\springcloud\spring cloud-provider-hystrix-8001\src\main\resources" />
+      <recent name="F:\IDEA2020\springcloud\spring cloud-provider-8002\src\main\resources\mybatis\mapper" />
+      <recent name="F:\IDEA2020\springcloud\spring cloud-provider-8002\src\main\resources\mybatis" />
+      <recent name="F:\IDEA2020\springcloud\spring cloud-provider-8002\src\main\resources" />
+      <recent name="F:\IDEA2020\springcloud\spring cloud-provider-8002\src\main\java\com\xy\springcloud" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xy.springcloud.service" />
+      <recent name="com.xy.springcloud.dao" />
+      <recent name="com.xy.springcloud.controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\IDEA2020\springcloud\spring cloud-provider-8001\src\main\resources\mybatis\" />
+      <recent name="F:\IDEA2020\springcloud\spring cloud-api\src\main\resources\mybatis" />
+      <recent name="F:\IDEA2020\springcloud\spring cloud-provider-8001\src\main\resources\mybatis" />
+      <recent name="F:\IDEA2020\springcloud\spring cloud-api\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ConfigServer">
+    <configuration name="ConfigServer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="springcloud-config-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xy.springcloud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xy.springcloud.ConfigServer" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Config_server_3344" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="springcloud-config-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xy.springcloud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xy.springcloud.Config_server_3344" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringCloudEureka02" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="spring cloud-eureka-7002" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xy.springcloud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xy.springcloud.SpringCloudEureka02" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringCloudProvider02" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="spring cloud-provider-8002" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xy.springcloud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xy.springcloud.SpringCloudProvider02" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringCloudProvider02" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <module name="spring cloud-provider-8002" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xy.springcloud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xy.springcloud.SpringCloudProvider02" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringCloudZuul" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="spring cloud-zuul" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xy.springcloud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xy.springcloud.SpringCloudZuul" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.SpringCloudEureka02" />
+      <item itemvalue="Spring Boot.SpringCloudProvider02" />
+      <item itemvalue="Spring Boot.SpringCloudZuul" />
+      <item itemvalue="Spring Boot.Config_server_3344" />
+      <item itemvalue="Spring Boot.ConfigServer" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.ConfigServer" />
+        <item itemvalue="Spring Boot.Config_server_3344" />
+        <item itemvalue="Spring Boot.SpringCloudZuul" />
+        <item itemvalue="Spring Boot.SpringCloudProvider02" />
+        <item itemvalue="Spring Boot.SpringCloudEureka02" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpringGeneralSettings">
+    <option name="allowAutoConfigurationMode" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ca59a45e-fc3e-43c2-9d8b-a40d84c69cb1" name="Default Changelist" comment="" />
+      <created>1630030758418</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1630030758418</updated>
+      <workItem from="1630030760121" duration="50000" />
+      <workItem from="1630030883150" duration="3041000" />
+      <workItem from="1630034052517" duration="5994000" />
+      <workItem from="1630051569980" duration="5873000" />
+      <workItem from="1630287948040" duration="2940000" />
+      <workItem from="1630291863847" duration="12250000" />
+      <workItem from="1630316992392" duration="1654000" />
+      <workItem from="1630318783131" duration="26000" />
+      <workItem from="1630319217343" duration="3503000" />
+      <workItem from="1630378740469" duration="2553000" />
+      <workItem from="1630395538614" duration="7066000" />
+      <workItem from="1630402714389" duration="792000" />
+      <workItem from="1630570056026" duration="11348000" />
+      <workItem from="1630735125907" duration="3080000" />
+      <workItem from="1630757771224" duration="4431000" />
+      <workItem from="1630889278129" duration="57000" />
+      <workItem from="1630924463541" duration="221000" />
+    </task>
+    <task id="LOCAL-00001" summary="提交">
+      <created>1630738978120</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1630738978120</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="提交" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="249" y="0" key="#Project_Structure" timestamp="1630924617097">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="249" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1630924617097" />
+    <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1630403298284">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1630403298284" />
+    <state x="501" y="208" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1630055387037">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="501" y="208" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1630055387037" />
+    <state x="658" y="164" key="#com.intellij.ide.util.MemberChooser" timestamp="1630582047125">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="658" y="164" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1630582047125" />
+    <state x="578" y="321" key="#com.intellij.javaee.module.view.web.EditWebRootDialog" timestamp="1630401032051">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="578" y="321" key="#com.intellij.javaee.module.view.web.EditWebRootDialog/0.0.1536.824@0.0.1536.824" timestamp="1630401032051" />
+    <state x="419" y="335" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1630032482057">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="419" y="335" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1630032482057" />
+    <state x="543" y="283" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1630032483223">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="543" y="283" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1536.824@0.0.1536.824" timestamp="1630032483223" />
+    <state x="156" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1630402556226">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="156" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1630402556226" />
+    <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1630315904228">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1630315904228" />
+    <state x="61" y="140" key="FileChooserDialogImpl" timestamp="1630889029290">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="61" y="140" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1630889029290" />
+    <state width="1278" height="369" key="GridCell.Tab.0.bottom" timestamp="1630889068254">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1278" height="369" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1630889068254" />
+    <state width="1278" height="369" key="GridCell.Tab.0.center" timestamp="1630889068252">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1278" height="369" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1630889068252" />
+    <state width="1278" height="369" key="GridCell.Tab.0.left" timestamp="1630889068252">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1278" height="369" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1630889068252" />
+    <state width="1278" height="369" key="GridCell.Tab.0.right" timestamp="1630889068253">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1278" height="369" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1630889068253" />
+    <state width="1278" height="369" key="GridCell.Tab.1.bottom" timestamp="1630889068254">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1278" height="369" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1630889068254" />
+    <state width="1278" height="369" key="GridCell.Tab.1.center" timestamp="1630889068254">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1278" height="369" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1630889068254" />
+    <state width="1278" height="369" key="GridCell.Tab.1.left" timestamp="1630889068254">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1278" height="369" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1630889068254" />
+    <state width="1278" height="369" key="GridCell.Tab.1.right" timestamp="1630889068254">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1278" height="369" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1630889068254" />
+    <state width="1493" height="420" key="GridCell.Tab.2.bottom" timestamp="1630402707904">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="420" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1630402707904" />
+    <state width="1493" height="420" key="GridCell.Tab.2.center" timestamp="1630402707904">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="420" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1630402707904" />
+    <state width="1493" height="420" key="GridCell.Tab.2.left" timestamp="1630402707903">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="420" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1630402707903" />
+    <state width="1493" height="420" key="GridCell.Tab.2.right" timestamp="1630402707904">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="420" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1630402707904" />
+    <state x="116" y="88" width="1131" height="707" key="SettingsEditor" timestamp="1630889047873">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="116" y="88" width="1131" height="707" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1630889047873" />
+    <state x="668" y="289" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1630054860152">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="668" y="289" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.0.1536.824@0.0.1536.824" timestamp="1630054860152" />
+    <state x="592" y="82" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1630053550128">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="592" y="82" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1630053550128" />
+    <state x="425" y="64" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1630738924197">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="64" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1536.824@0.0.1536.824" timestamp="1630738924197" />
+    <state x="468" y="130" width="636" height="616" key="find.popup" timestamp="1630887646218">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="468" y="130" width="636" height="616" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1630887646218" />
+    <state x="343" y="0" key="new project wizard" timestamp="1630888504542">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="343" y="0" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1630888504542" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1630290670789">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1630290670789" />
+    <state x="405" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1630397373623">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="405" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1630397373623" />
+    <state x="336" y="21" key="spring file set editor" timestamp="1630889032923">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="336" y="21" key="spring file set editor/0.0.1536.824@0.0.1536.824" timestamp="1630889032923" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/spring cloud-provider-8002/src/main/java/com/xy/springcloud/service/DeptServiceImpl02.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

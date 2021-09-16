@@ -1,0 +1,20 @@
+
+c
+java:S2095h"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(¬óÊ–
+E
+java:S3740 "/Provide the parametrized type for this generic.(ãóÚö
+K
+java:S1191"5Use classes from the Java API instead of Sun classes.(ëŞï®
+l
+java:S2259T"VA "NullPointerException" could be thrown; "exerciseOriginalFilename" is nullable here.(¶Ü¸•
+g
+java:S2259:"QA "NullPointerException" could be thrown; "pptOriginalFilename" is nullable here.(¸§±¥
+n
+java:S2259H"SA "NullPointerException" could be thrown; "videoOriginalFilename" is nullable here.(¸ú­‚üÿÿÿÿ
+T
+java:S1128">Remove this unused import 'java.nio.charset.StandardCharsets'.(ï˜ŞÛ
+I
+java:S1128"3Remove this unused import 'sun.misc.BASE64Encoder'.(ëŞï®
+m
+java:S3776+"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(Ñ¸àâıÿÿÿÿ
+N	java:S1063"9Replace this use of System.out or System.err by a logger.(¤¦

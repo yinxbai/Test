@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yq.mapper.CourseResourceMapper">
+    <resultMap id="findAllByTeacherMapper" type="CourseResource">
+        <id column="id" property="id"></id>
+        <result column="title" property="title"></result>
+        <result column="ppt" property="ppt"></result>
+        <result column="video" property="video"></result>
+        <result column="exercise" property="exercise"></result>
+        <result column="create_time" property="createTime"></result>
+        <result column="video_FileName" property="videoFileName"></result>
+        <result column="exercise_FileName" property="exerciseFileName"></result>
+        <result column="ppt_FileName" property="pptFileName"></result>
+        <association property="creator" column="creator" javaType="teacher">
+            <id column="tid" property="id"></id>
+            <result column="tname" property="name"></result>
+        </association>
+    </resultMap>
+    <select id="findAllByTeacher" resultMap="findAllByTeacherMapper" parameterType="string" >
+        select a.*,b.id tid,b.name tname from course_resource a, teacher b where a.creator=b.id and a.creator=#{teacherId}
+    </select>
+
+    <select id="findById" parameterType="string" resultMap="findAllByTeacherMapper">
+        select a.*,b.id tid,b.name tname from course_resource a, teacher b where a.creator=b.id and a.id=#{id}
+    </select>
+
+    <select id="findAllByStudent" parameterType="string" resultMap="findAllByTeacherMapper">
+        select a.*,b.id tid,b.name tname from course_resource a, teacher b, student c where a.creator=b.id and b.clazz_id=c.clazz_id and b.id=#{id}
+    </select>
+
+    <select id="findByStudent" parameterType="student" resultMap="findAllByTeacherMapper" >
+        select a.*,b.id tid,b.name tname from course_resource a, teacher b, student c where a.creator=b.id and b.clazz_id=c.clazz_id and c.id=#{id}
+    </select>
+
+
+    <insert id="save" parameterType="courseResource">
+        insert into course_resource (id,title,ppt,video,exercise,creator,create_time,ppt_filename,video_filename,exercise_filename) values(#{id},#{title},#{ppt},#{video},#{exercise},#{creator.id},#{createTime},#{pptFileName},#{videoFileName},#{exerciseFileName})
+    </insert>
+
+
+</mapper>

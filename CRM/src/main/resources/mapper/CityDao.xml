@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ll.crm.dao.CityDao">
+
+    <resultMap type="com.ll.crm.entity.City" id="CityMap">
+        <result property="id" column="ID" jdbcType="VARCHAR"/>
+        <result property="name" column="NAME" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="CityMap">
+        select ID,
+               NAME
+        from crm.city
+        where ID = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="CityMap">
+        select ID,
+               NAME
+        from crm.city limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="CityMap">
+       select * from city
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into crm.city(id,`name`)
+        values (#{id},#{name})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into crm.city(NAME)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.name})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into crm.city(NAME)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.name})
+        </foreach>
+        on duplicate key update
+        NAME = values(NAME)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update crm.city
+        <set>
+            <if test="name != null and name != ''">
+                NAME = #{name},
+            </if>
+        </set>
+        where ID = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById" parameterType="string">
+        delete from city where ID = #{id}
+    </delete>
+
+</mapper>
+

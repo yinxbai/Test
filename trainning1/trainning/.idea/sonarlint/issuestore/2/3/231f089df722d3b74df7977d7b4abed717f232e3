@@ -1,0 +1,15 @@
+
+\
+java:S1192"FDefine a constant instead of duplicating this literal "login" 4 times.(Íý‡Ç
+\
+java:S1192"FDefine a constant instead of duplicating this literal "login" 4 times.(Íý‡Ç
+f	java:S117="QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( «ºù
+f	java:S117H"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰Èøõ
+f	java:S117="QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( «ºù
+f	java:S117H"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰Èøõ
+n
+java:S1128"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡ž¸Îùÿÿÿÿ
+n
+java:S1128"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡ž¸Îùÿÿÿÿ
+Z	java:S106<"9Replace this use of System.out or System.err by a logger.(½Û‡÷úÿÿÿÿ8èÕÒÿ¥/
+S	java:S106<"9Replace this use of System.out or System.err by a logger.(½Û‡÷úÿÿÿÿ

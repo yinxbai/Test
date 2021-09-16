@@ -1,0 +1,16 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: spring-cloud-zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://activate.navicat.com:7001/eureka/,http://localhost:7002/eureka/
+  instance:
+    instance-id: zuul9527.com
+    prefer-ip-address: true
+info:
+  app.name: xy.springcloud
+  company.name: blog.xy.com

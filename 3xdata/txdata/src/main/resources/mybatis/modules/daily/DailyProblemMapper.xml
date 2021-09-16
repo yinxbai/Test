@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.txdata.modules.daily.dao.DailyProblemDao">
+
+    <resultMap type="com.txdata.modules.daily.entity.DailyProblem" id="DailyProblemMap">
+        <result property="id" column="Id"/>
+        <result property="type" column="Type"/>
+        <result property="name" column="Name"/>
+        <result property="recordTime" column="record_time" jdbcType="TIMESTAMP"/>
+        <result property="support" column="Support"/>
+        <result property="description" column="description"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="DailyProblemMap">
+        select Id,
+               Type,
+               Name,
+               record_time,
+               Support,
+               description
+        from txdata.t_daily_problem
+        where Id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="DailyProblemMap">
+        select Id,
+               Type,
+               Name,
+               record_time,
+               Support,
+               description
+        from txdata.t_daily_problem limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="DailyProblemMap">
+        select
+        Id, Type, Name, record_time, Support, description
+        from txdata.t_daily_problem
+        <where>
+            <if test="id != null and id != ''">
+                and Id = #{id}
+            </if>
+            <if test="type != null and type != ''">
+                and Type = #{type}
+            </if>
+            <if test="name != null and name != ''">
+                and Name = #{name}
+            </if>
+            <if test="recordTime != null">
+                and record_time = #{recordTime}
+            </if>
+            <if test="support != null and support != ''">
+                and Support = #{support}
+            </if>
+            <if test="description != null and description != ''">
+                and description = #{description}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into txdata.t_daily_problem(Type, Name, record_time, Support, description)
+        values (#{type}, #{name}, #{recordTime}, #{support}, #{description})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into txdata.t_daily_problem(Type, Name, record_time, Support, description)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.type}, #{entity.name}, #{entity.recordTime}, #{entity.support}, #{entity.description})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into txdata.t_daily_problem(Type, Name, record_time, Support, description)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.type}, #{entity.name}, #{entity.recordTime}, #{entity.support}, #{entity.description})
+        </foreach>
+        on duplicate key update
+        Type = values(Type) , Name = values(Name) , record_time = values(record_time) , Support = values(Support) ,
+        description = values(description)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update txdata.t_daily_problem
+        <set>
+            <if test="type != null and type != ''">
+                Type = #{type},
+            </if>
+            <if test="name != null and name != ''">
+                Name = #{name},
+            </if>
+            <if test="recordTime != null">
+                record_time = #{recordTime},
+            </if>
+            <if test="support != null and support != ''">
+                Support = #{support},
+            </if>
+            <if test="description != null and description != ''">
+                description = #{description},
+            </if>
+        </set>
+        where Id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from txdata.t_daily_problem
+        where Id = #{id}
+    </delete>
+
+</mapper>
+

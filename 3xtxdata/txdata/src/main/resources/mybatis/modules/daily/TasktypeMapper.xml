@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.txdata.modules.daily.dao.TasktypeDao">
+
+    <sql id="tasktypeColumns">
+    	a.`Id` AS "id",
+    	a.`Name` AS "name"
+    </sql>
+    
+    <sql id="leftJion">
+    </sql>
+    
+	<select id="get" resultType="TasktypeDO">
+		SELECT  
+		<include refid="tasktypeColumns"/>
+		FROM t_tasktype a
+		<include refid="leftJion"/>
+		WHERE a.Id = #{value}
+	</select>
+
+	<select id="list" resultType="TasktypeDO">
+		SELECT 
+        <include refid="tasktypeColumns"/>
+        FROM t_tasktype a
+        <include refid="leftJion"/>
+        <where> 
+           <if test="entity.id != null and entity.id != ''"> 
+		  		AND a.Id = #{entity.id}
+		   </if>		
+           <if test="entity.name != null and entity.name != ''"> 
+		  		AND a.Name = #{entity.name}
+		   </if>		
+		</where>
+        ORDER BY a.update_date DESC,a.Id DESC
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO t_tasktype
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+					<if test="id != null">`Id`,</if>
+					<if test="name != null">`Name`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id != null">#{id},</if>
+			<if test="name != null">#{name},</if>
+		</trim>
+	</insert>
+	 
+	<update id="update">
+		UPDATE t_tasktype 
+		<set>
+			<if test="name != null">`Name` = #{name}</if>
+		</set>
+		WHERE Id = #{id} 
+	</update>
+	
+	<update id="remove">
+		UPDATE t_tasktype 
+		SET `del_flag` = '1'
+		WHERE Id = #{value}
+	</update>
+	
+	<update id="batchRemove">
+		UPDATE t_tasktype 
+		SET `del_flag` = '1'
+		WHERE Id IN 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM t_tasktype 
+		WHERE Id = #{value}
+	</delete>
+	
+	<delete id="batchDelete">
+		DELETE FROM t_tasktype 
+		WHERE Id IN 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+	
+	<insert id="batchInsert">
+		INSERT INTO t_tasktype
+		(
+			`Id`,
+			`Name`
+		)
+		VALUES
+		<foreach item="tasktype" collection="list" separator=",">
+		(
+			#{tasktype.id},
+			#{tasktype.name}
+		)
+		</foreach>
+	</insert>
+	 
+	<update id="batchUpdate">
+		<foreach item="tasktype" collection="list" separator=";">
+			UPDATE t_tasktype 
+			<set>
+				<if test="tasktype.name != null">`Name` = #{tasktype.name}</if>
+			</set>
+			WHERE Id = #{tasktype.id} 
+		</foreach>
+	</update>
+	
+	<update id="updateByWhere">
+		UPDATE t_tasktype 
+		<set>
+			<if test="param.name != null">`Name` = #{param.name}</if>
+		</set>
+		<where> 
+           <if test="where.id != null and where.id != ''"> 
+		  		AND Id = #{where.id}
+		   </if>
+           <if test="where.name != null and where.name != ''"> 
+		  		AND Name = #{where.name}
+		   </if>
+		</where>
+	</update>
+	
+	<update id="removeByWhere">
+		UPDATE t_tasktype 
+		SET `del_flag` = '1'
+		<where> 
+           <if test="where.id != null and where.id != ''"> 
+		  		AND Id = #{where.id}
+		   </if>
+           <if test="where.name != null and where.name != ''"> 
+		  		AND Name = #{where.name}
+		   </if>
+		</where>
+	</update>
+	
+	<delete id="deleteByWhere">
+		DELETE FROM t_tasktype 
+		<where> 
+           <if test="where.id != null and where.id != ''"> 
+		  		AND Id = #{where.id}
+		   </if>
+           <if test="where.name != null and where.name != ''"> 
+		  		AND Name = #{where.name}
+		   </if>
+		</where>
+	</delete>
+</mapper>

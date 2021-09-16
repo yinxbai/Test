@@ -1,0 +1,20 @@
+
+jWeb:DoctypePresenceCheck":Insert a <!DOCTYPE> declaration to before this <html> tag.(œ÷Ãûÿÿÿÿ8ø³˜†¦/
+a	Web:S5254"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷Ãûÿÿÿÿ8ù³˜†¦/
+JWeb:PageWithoutTitleCheck"Add a <title> tag to this page.(Õ¶¯M8ù³˜†¦/
+TWeb:TableWithoutCaptionCheck" Add a description to this table.(­ã’Òÿÿÿÿÿ8ù³˜†¦/
+s Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(àóú…ıÿÿÿÿ8ù³˜†¦/
+s Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(ˆŸí…ÿÿÿÿÿ8ù³˜†¦/
+n Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(ø±Æ 8ù³˜†¦/
+s Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(û÷š¬úÿÿÿÿ8ù³˜†¦/
+n Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(ÿªë¶8ù³˜†¦/
+s Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(§¿¨¹øÿÿÿÿ8ù³˜†¦/
+s Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(¯İÂ¢ùÿÿÿÿ8ù³˜†¦/
+OWeb:BoldAndItalicTagsCheck,"Replace this <i> tag by <em>.(¦§‡úÿÿÿÿ8ù³˜†¦/
+JWeb:BoldAndItalicTagsCheck-"Replace this <i> tag by <em>.(³ùûƒ8ù³˜†¦/
+JWeb:BoldAndItalicTagsCheck;"Replace this <i> tag by <em>.(õ±ú8ù³˜†¦/
+OWeb:BoldAndItalicTagsCheck@"Replace this <i> tag by <em>.(ô×îµüÿÿÿÿ8ù³˜†¦/
+IWeb:BoldAndItalicTagsCheckK"Replace this <i> tag by <em>.(–Í8ù³˜†¦/
+OWeb:BoldAndItalicTagsCheckP"Replace this <i> tag by <em>.(“„—Õıÿÿÿÿ8ù³˜†¦/
+JWeb:BoldAndItalicTagsCheckm"Replace this <i> tag by <em>.(ˆû‰8ù³˜†¦/
+KWeb:BoldAndItalicTagsCheck”"Replace this <i> tag by <em>.(ˆû‰8ù³˜†¦/

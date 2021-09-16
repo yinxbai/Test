@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>公用部分</title>
+</head>
+<body>
+<div th:fragment="header">
+  <!-- Meta -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+  <meta name="description" content="AppUI - Admin Dashboard Template & UI Framework" />
+  <meta name="author" content="rustheme" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" th:href="@{/static/assets/img/favicons/apple-touch-icon.png}" />
+  <link rel="icon" th:href="@{/static/assets/img/favicons/favicon.ico}" />
+
+  <!-- Google fonts -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,900%7CRoboto+Slab:300,400%7CRoboto+Mono:400" />
+
+  <!-- Page JS Plugins CSS -->
+  <link rel="stylesheet" th:href="@{/static/assets/js/plugins/slick/slick.min.css}" />
+  <link rel="stylesheet" th:href="@{/static/assets/js/plugins/slick/slick-theme.min.css}" />
+
+  <!-- AppUI CSS stylesheets -->
+  <link rel="stylesheet" id="css-font-awesome" th:href="@{/static/assets/css/font-awesome.css}" />
+  <link rel="stylesheet" id="css-ionicons" th:href="@{/static/assets/css/ionicons.css}" />
+  <link rel="stylesheet" id="css-bootstrap" th:href="@{/static/assets/css/bootstrap.css}" />
+  <link rel="stylesheet" id="css-app" th:href="@{/static/assets/css/app.css}" />
+  <link rel="stylesheet" id="css-app-custom" th:href="@{/static/assets/css/app-custom.css}" />
+  <!-- End Stylesheets -->
+
+</div>
+<div th:fragment="footer">
+  <!-- End Apps Modal -->
+  <script th:src="@{/static/assets/js/core/jquery.min.js}"></script>
+  <script th:src="@{/static/assets/js/core/bootstrap.min.js}"></script>
+  <script th:src="@{/static/assets/js/core/jquery.slimscroll.min.js}"></script>
+  <script th:src="@{/static/assets/js/core/jquery.scrollLock.min.js}"></script>
+  <script th:src="@{/static/assets/js/core/jquery.placeholder.min.js}"></script>
+  <script th:src="@{/static/assets/js/app.js}"></script>
+  <script th:src="@{/static/assets/js/app-custom.js}"></script>
+  <!-- Page Plugins -->
+  <script th:src="@{/static/assets/js/plugins/slick/slick.min.js}"></script>
+  <script th:src="@{/static/assets/js/plugins/chartjs/Chart.min.js}"></script>
+  <script th:src="@{/static/assets/js/plugins/flot/jquery.flot.min.js}"></script>
+  <script th:src="@{/static/assets/js/plugins/flot/jquery.flot.pie.min.js}"></script>
+  <script th:src="@{/static/assets/js/plugins/flot/jquery.flot.stack.min.js}"></script>
+  <script th:src="@{/static/assets/js/plugins/flot/jquery.flot.resize.min.js}"></script>
+</div>
+</body>
+</html>

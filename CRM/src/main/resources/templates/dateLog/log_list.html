@@ -1,0 +1,104 @@
+<html lang="an" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>客户信息</title>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <meta name="description" content="AppUI - Admin Dashboard Template & UI Framework" />
+    <meta name="author" content="rustheme" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" th:href="@{/assets/img/favicons/apple-touch-icon.png}" />
+    <link rel="icon" th:href="@{/assets/img/favicons/favicon.ico}" />
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,900%7CRoboto+Slab:300,400%7CRoboto+Mono:400" />
+
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" th:href="@{/assets/js/plugins/slick/slick.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/js/plugins/slick/slick-theme.min.css}" />
+
+    <!-- AppUI CSS stylesheets -->
+    <link rel="stylesheet" id="css-font-awesome" th:href="@{/assets/css/font-awesome.css}" />
+    <link rel="stylesheet" id="css-ionicons" th:href="@{/assets/css/ionicons.css}" />
+    <link rel="stylesheet" id="css-bootstrap" th:href="@{/assets/css/bootstrap.css}" />
+    <link rel="stylesheet" id="css-app" th:href="@{/assets/css/app.css}" />
+    <link rel="stylesheet" id="css-app-custom" th:href="@{/assets/css/app-custom.css}" />
+</head>
+<body class="app-ui layout-has-drawer layout-has-fixed-header">
+<div class="container-fluid p-y-md">
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- Hover Table -->
+            <form class="form-horizontal m-t-sm" method="post" id="form">
+                <div class="card">
+                    <div class="card-block">
+                        <div class="card-header">
+                            <div><input id="export" type="button" class="btn btn-app-blue" value="定时导出" data-toggle="modal" data-target="#modal-add" />
+                            </div>
+                        </div>
+                        <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
+                            <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th class="hidden-xs w-15">创建时间</th>
+                                <th class="hidden-xs w-15">用户Id</th>
+                                <th class="hidden-xs w-15">IP</th>
+                                <th class="hidden-xs w-15">行为</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="l,v: ${list}">
+                                <td th:text="${v.index+1}"></td>
+                                <td class="hidden-xs" th:text="${l.createTime}" ></td>
+                                <td class="hidden-xs" th:text="${l.userId}" ></td>
+                                <td class="hidden-xs" th:text="${l.ip}" ></td>
+                                <td class="hidden-xs" th:text="${l.description}" ></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- .card-block -->
+                </div>
+            </form>
+            <!-- .card -->
+            <!-- End Hover Table -->
+        </div>
+    </div>
+</div>
+
+<!-- Normal Modal -->
+<!-- End Apps Modal -->
+<script src="/assets/js/core/jquery.min.js"></script>
+<script src="/assets/js/core/bootstrap.min.js"></script>
+<script src="/assets/js/core/jquery.slimscroll.min.js"></script>
+<script src="/assets/js/core/jquery.scrollLock.min.js"></script>
+<script src="/assets/js/core/jquery.placeholder.min.js"></script>
+<script src="/assets/js/app.js"></script>
+<script src="/assets/js/app-custom.js"></script>
+<!-- Page Plugins -->
+<script src="/assets/js/plugins/slick/slick.min.js"></script>
+<script src="/assets/js/plugins/chartjs/Chart.min.js"></script>
+<script src="/assets/js/plugins/flot/jquery.flot.min.js"></script>
+<script src="/assets/js/plugins/flot/jquery.flot.pie.min.js"></script>
+<script src="/assets/js/plugins/flot/jquery.flot.stack.min.js"></script>
+<script src="/assets/js/plugins/flot/jquery.flot.resize.min.js"></script>
+<!-- Page JS Plugins -->
+<script src="/assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
+
+<!-- Page JS Code -->
+<script src="/assets/js/pages/base_tables_datatables.js"></script>
+<script>
+    $(function() {
+        $("#export").click(function() {
+            if (confirm("是否导出")){
+                location.href = "/log/timeExport";
+            }
+        });
+    });
+</script>
+</body>
+</html>

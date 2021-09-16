@@ -1,0 +1,9 @@
+
+`
+java:S2095"EUse try-with-resources or close this "Channel" in a "finally" clause.(‡î‰´ûÿÿÿÿ
+^
+java:S2095"HUse try-with-resources or close this "Connection" in a "finally" clause.(“…§Ú
+E
+java:S1128	"*Remove this unused import 'java.util.Map'.(¼è½Òþÿÿÿÿ
+2
+java:S1116*"Remove this empty statement.(¾×ýÓ

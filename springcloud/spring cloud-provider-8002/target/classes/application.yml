@@ -1,0 +1,29 @@
+server:
+  port: 8002
+
+mybatis:
+  type-aliases-package: com.xy.springcloud.pojo
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+spring:
+  application:
+    name: springCloudProvider02
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db02?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+
+#Eureka配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://activate.navicat.com:7001/eureka/,http://localhost:7002/eureka/
+  instance:
+    instance-id: SpringCloudProvider02
+info:
+  app.name: XYSpringCloud02
+  company.name: XY.SpringCloud02.com
+
+

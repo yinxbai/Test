@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.txdata.modules.daily.dao.DailyDao">
+
+	<sql id="dailyColumns">
+    	a.`id` AS "id",
+    	a.`title` AS "title",
+    	a.`write_user` AS "writeUser",
+    	a.`write_date` AS "writeDate",
+    	a.`create_by` AS "createBy",
+    	a.`Post` AS "post",
+    	a.`create_date` AS "createDate",
+    	a.`update_by` AS "updateBy",
+    	a.`update_date` AS "updateDate",
+    	a.`status` AS "status",
+    	a.`report_date` AS "reportDate",
+    	a.`remarks` AS "remarks",
+    	a.`del_flag` AS "delFlag",
+    	a.`file_path` AS "filePath"
+    </sql>
+	
+
+	<sql id="leftJion">
+	</sql>
+
+	<select id="get" resultType="DailyDO">
+		SELECT
+		<include refid="dailyColumns"/>
+		FROM t_daily a
+		<include refid="leftJion"/>
+		WHERE a.id = #{value}
+	</select>
+
+	<select id="list" resultType="DailyDO">
+		SELECT
+		<include refid="dailyColumns"/>
+		FROM t_daily a
+		<include refid="leftJion"/>
+		<where>
+			<if test="entity.id != null and entity.id != ''">
+				AND a.id = #{entity.id}
+			</if>
+			<if test="entity.title != null and entity.title != ''">
+				AND a.title = #{entity.title}
+			</if>
+			<if test="entity.writeUser != null and entity.writeUser != ''">
+				AND a.write_user = #{entity.writeUser}
+			</if>
+			<if test="entity.writeDate != null and entity.writeDate != ''">
+				AND a.write_date = #{entity.writeDate}
+			</if>
+			<if test="entity.createBy != null and entity.createBy != ''">
+				AND a.create_by = #{entity.createBy}
+			</if>
+			<if test="entity.post != null and entity.post != ''">
+				AND a.Post = #{entity.post}
+			</if>
+			<if test="entity.createDate != null and entity.createDate != ''">
+				AND a.create_date = #{entity.createDate}
+			</if>
+			<if test="entity.updateBy != null and entity.updateBy != ''">
+				AND a.update_by = #{entity.updateBy}
+			</if>
+			<if test="entity.updateDate != null and entity.updateDate != ''">
+				AND a.update_date = #{entity.updateDate}
+			</if>
+			<if test="entity.status != null and entity.status != ''">
+				AND a.status = #{entity.status}
+			</if>
+			<if test="entity.reportDate != null and entity.reportDate != ''">
+				AND a.report_date = #{entity.reportDate}
+			</if>
+			<if test="entity.remarks != null and entity.remarks != ''">
+				AND a.remarks = #{entity.remarks}
+			</if>
+			<if test="entity.delFlag != null and entity.delFlag != ''">
+				AND a.del_flag = #{entity.delFlag}
+			</if>
+			<if test="entity.delFlag == null or entity.delFlag == ''">
+				AND a.del_flag = '0'
+			</if>
+			<if test="entity.filePath != null and entity.filePath != ''">
+				AND a.file_path = #{entity.filePath}
+			</if>
+		</where>
+		ORDER BY a.update_date DESC,a.id DESC
+	</select>
+	<select id="getAll" resultType="com.txdata.modules.daily.domain.DailyDO">
+
+	</select>
+
+	<insert id="insert">
+		INSERT ALL
+		INTO t_daily
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null">`id`,</if>
+			<if test="title != null">`title`,</if>
+			<if test="writeUser != null">`write_user`,</if>
+			<if test="writeDate != null">`write_date`,</if>
+			<if test="createBy != null">`create_by`,</if>
+			<if test="post != null">`Post`,</if>
+			<if test="createDate != null">`create_date`,</if>
+			<if test="updateBy != null">`update_by`,</if>
+			<if test="updateDate != null">`update_date`,</if>
+			<if test="status != null">`status`,</if>
+			<if test="reportDate != null">`report_date`,</if>
+			<if test="remarks != null">`remarks`,</if>
+			<if test="delFlag != null">`del_flag`,</if>
+			<if test="filePath != null">`file_path`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id != null">#{id},</if>
+			<if test="title != null">#{title},</if>
+			<if test="writeUser != null">#{writeUser},</if>
+			<if test="writeDate != null">#{writeDate},</if>
+			<if test="createBy != null">#{createBy},</if>
+			<if test="post != null">#{post},</if>
+			<if test="createDate != null">#{createDate},</if>
+			<if test="updateBy != null">#{updateBy},</if>
+			<if test="updateDate != null">#{updateDate},</if>
+			<if test="status != null">#{status},</if>
+			<if test="reportDate != null">#{reportDate},</if>
+			<if test="remarks != null">#{remarks},</if>
+			<if test="delFlag != null">#{delFlag},</if>
+			<if test="filePath != null">#{filePath},</if>
+		</trim>
+		INTO t_daily_task
+		(
+		`id`,
+		`daily_id`,
+		`project_id`,
+		`daily_task_type`,
+		`usetime`,
+		`percent_complete`,
+		`remarks`,
+		`create_by`,
+		`create_date`,
+		`update_by`,
+		`update_date`,
+		`sort`
+		)
+		WHEN t_daily.id = t_daily_task.daily_id
+		VALUES
+		<foreach item="dailyTask" collection="list" separator=",">
+			(
+			#{dailyTask.id},
+			#{dailyTask.dailyId},
+			#{dailyTask.projectId},
+			#{dailyTask.dailyTaskType},
+			#{dailyTask.usetime},
+			#{dailyTask.percentComplete},
+			#{dailyTask.remarks},
+			#{dailyTask.createBy},
+			#{dailyTask.createDate},
+			#{dailyTask.updateBy},
+			#{dailyTask.updateDate},
+			#{dailyTask.sort}
+			)
+		</foreach>
+		INTO t_daily_arrange
+		(
+		`id`,
+		`daily_id`,
+		`daily_task_type`,
+		`remarks`,
+		`finish_date`,
+		`create_by`,
+		`create_date`,
+		`update_by`,
+		`update_date`,
+		`sort`
+		)
+		WHEN t_daily_task.daily_id = t_daily_arrange.daily_id
+		VALUES
+		<foreach item="dailyArrange" collection="list" separator=",">
+			(
+			#{dailyArrange.id},
+			#{dailyArrange.dailyId},
+			#{dailyArrange.dailyTaskType},
+			#{dailyArrange.remarks},
+			#{dailyArrange.finishDate},
+			#{dailyArrange.createBy},
+			#{dailyArrange.createDate},
+			#{dailyArrange.updateBy},
+			#{dailyArrange.updateDate},
+			#{dailyArrange.sort}
+			)
+		</foreach>
+	</insert>
+
+	<update id="update">
+		UPDATE t_daily
+		<set>
+			<if test="title != null">`title` = #{title}</if>
+			<if test="writeUser != null">`write_user` = #{writeUser}</if>
+			<if test="writeDate != null">`write_date` = #{writeDate}</if>
+			<if test="createBy != null">`create_by` = #{createBy}</if>
+			<if test="post != null">`Post` = #{post}</if>
+			<if test="createDate != null">`create_date` = #{createDate}</if>
+			<if test="updateBy != null">`update_by` = #{updateBy}</if>
+			<if test="updateDate != null">`update_date` = #{updateDate}</if>
+			<if test="status != null">`status` = #{status}</if>
+			<if test="reportDate != null">`report_date` = #{reportDate}</if>
+			<if test="remarks != null">`remarks` = #{remarks}</if>
+			<if test="delFlag != null">`del_flag` = #{delFlag}</if>
+			<if test="filePath != null">`file_path` = #{filePath}</if>
+		</set>
+		WHERE id = #{id}
+	</update>
+
+	<update id="remove">
+		UPDATE t_daily
+		SET `del_flag` = '1'
+		WHERE id = #{value}
+	</update>
+
+	<update id="batchRemove">
+		UPDATE t_daily
+		SET `del_flag` = '1'
+		WHERE id IN
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</update>
+
+	<delete id="delete">
+		DELETE FROM t_daily
+		WHERE id = #{value}
+	</delete>
+
+	<delete id="batchDelete">
+		DELETE FROM t_daily
+		WHERE id IN
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+	<insert id="batchInsert">
+		INSERT INTO t_daily
+		(
+		`id`,
+		`title`,
+		`write_user`,
+		`write_date`,
+		`create_by`,
+		`Post`,
+		`create_date`,
+		`update_by`,
+		`update_date`,
+		`status`,
+		`report_date`,
+		`remarks`,
+		`del_flag`,
+		`file_path`
+		)
+		VALUES
+		<foreach item="daily" collection="list" separator=",">
+			(
+			#{daily.id},
+			#{daily.title},
+			#{daily.writeUser},
+			#{daily.writeDate},
+			#{daily.createBy},
+			#{daily.post},
+			#{daily.createDate},
+			#{daily.updateBy},
+			#{daily.updateDate},
+			#{daily.status},
+			#{daily.reportDate},
+			#{daily.remarks},
+			#{daily.delFlag},
+			#{daily.filePath}
+			)
+		</foreach>
+	</insert>
+
+	<update id="batchUpdate">
+		<foreach item="daily" collection="list" separator=";">
+			UPDATE t_daily
+			<set>
+				<if test="daily.title != null">`title` = #{daily.title},</if>
+				<if test="daily.writeUser != null">`write_user` = #{daily.writeUser},</if>
+				<if test="daily.writeDate != null">`write_date` = #{daily.writeDate},</if>
+				<if test="daily.createBy != null">`create_by` = #{daily.createBy},</if>
+				<if test="daily.post != null">`Post` = #{daily.post},</if>
+				<if test="daily.createDate != null">`create_date` = #{daily.createDate},</if>
+				<if test="daily.updateBy != null">`update_by` = #{daily.updateBy},</if>
+				<if test="daily.updateDate != null">`update_date` = #{daily.updateDate},</if>
+				<if test="daily.status != null">`status` = #{daily.status},</if>
+				<if test="daily.reportDate != null">`report_date` = #{daily.reportDate},</if>
+				<if test="daily.remarks != null">`remarks` = #{daily.remarks},</if>
+				<if test="daily.delFlag != null">`del_flag` = #{daily.delFlag},</if>
+				<if test="daily.filePath != null">`file_path` = #{daily.filePath}</if>
+			</set>
+			WHERE id = #{daily.id}
+		</foreach>
+	</update>
+
+	<update id="updateByWhere">
+		UPDATE t_daily
+		<set>
+			<if test="param.title != null">`title` = #{param.title},</if>
+			<if test="param.writeUser != null">`write_user` = #{param.writeUser},</if>
+			<if test="param.writeDate != null">`write_date` = #{param.writeDate},</if>
+			<if test="param.createBy != null">`create_by` = #{param.createBy},</if>
+			<if test="param.post != null">`Post` = #{param.post},</if>
+			<if test="param.createDate != null">`create_date` = #{param.createDate},</if>
+			<if test="param.updateBy != null">`update_by` = #{param.updateBy},</if>
+			<if test="param.updateDate != null">`update_date` = #{param.updateDate},</if>
+			<if test="param.status != null">`status` = #{param.status},</if>
+			<if test="param.reportDate != null">`report_date` = #{param.reportDate},</if>
+			<if test="param.remarks != null">`remarks` = #{param.remarks},</if>
+			<if test="param.delFlag != null">`del_flag` = #{param.delFlag},</if>
+			<if test="param.filePath != null">`file_path` = #{param.filePath}</if>
+		</set>
+		<where>
+			<if test="where.id != null and where.id != ''">
+				AND id = #{where.id}
+			</if>
+			<if test="where.title != null and where.title != ''">
+				AND title = #{where.title}
+			</if>
+			<if test="where.writeUser != null and where.writeUser != ''">
+				AND write_user = #{where.writeUser}
+			</if>
+			<if test="where.writeDate != null and where.writeDate != ''">
+				AND write_date = #{where.writeDate}
+			</if>
+			<if test="where.createBy != null and where.createBy != ''">
+				AND create_by = #{where.createBy}
+			</if>
+			<if test="where.post != null and where.post != ''">
+				AND Post = #{where.post}
+			</if>
+			<if test="where.createDate != null and where.createDate != ''">
+				AND create_date = #{where.createDate}
+			</if>
+			<if test="where.updateBy != null and where.updateBy != ''">
+				AND update_by = #{where.updateBy}
+			</if>
+			<if test="where.updateDate != null and where.updateDate != ''">
+				AND update_date = #{where.updateDate}
+			</if>
+			<if test="where.status != null and where.status != ''">
+				AND status = #{where.status}
+			</if>
+			<if test="where.reportDate != null and where.reportDate != ''">
+				AND report_date = #{where.reportDate}
+			</if>
+			<if test="where.remarks != null and where.remarks != ''">
+				AND remarks = #{where.remarks}
+			</if>
+			<if test="where.delFlag != null and where.delFlag != ''">
+				AND del_flag = #{where.delFlag}
+			</if>
+			<if test="where.filePath != null and where.filePath != ''">
+				AND file_path = #{where.filePath}
+			</if>
+		</where>
+	</update>
+
+	<update id="removeByWhere">
+		UPDATE t_daily
+		SET `del_flag` = '1'
+		<where>
+			<if test="where.id != null and where.id != ''">
+				AND id = #{where.id}
+			</if>
+			<if test="where.title != null and where.title != ''">
+				AND title = #{where.title}
+			</if>
+			<if test="where.writeUser != null and where.writeUser != ''">
+				AND write_user = #{where.writeUser}
+			</if>
+			<if test="where.writeDate != null and where.writeDate != ''">
+				AND write_date = #{where.writeDate}
+			</if>
+			<if test="where.createBy != null and where.createBy != ''">
+				AND create_by = #{where.createBy}
+			</if>
+			<if test="where.post != null and where.post != ''">
+				AND Post = #{where.post}
+			</if>
+			<if test="where.createDate != null and where.createDate != ''">
+				AND create_date = #{where.createDate}
+			</if>
+			<if test="where.updateBy != null and where.updateBy != ''">
+				AND update_by = #{where.updateBy}
+			</if>
+			<if test="where.updateDate != null and where.updateDate != ''">
+				AND update_date = #{where.updateDate}
+			</if>
+			<if test="where.status != null and where.status != ''">
+				AND status = #{where.status}
+			</if>
+			<if test="where.reportDate != null and where.reportDate != ''">
+				AND report_date = #{where.reportDate}
+			</if>
+			<if test="where.remarks != null and where.remarks != ''">
+				AND remarks = #{where.remarks}
+			</if>
+			<if test="where.delFlag != null and where.delFlag != ''">
+				AND del_flag = #{where.delFlag}
+			</if>
+			<if test="where.filePath != null and where.filePath != ''">
+				AND file_path = #{where.filePath}
+			</if>
+		</where>
+	</update>
+
+	<delete id="deleteByWhere">
+		DELETE FROM t_daily
+		<where>
+			<if test="where.id != null and where.id != ''">
+				AND id = #{where.id}
+			</if>
+			<if test="where.title != null and where.title != ''">
+				AND title = #{where.title}
+			</if>
+			<if test="where.writeUser != null and where.writeUser != ''">
+				AND write_user = #{where.writeUser}
+			</if>
+			<if test="where.writeDate != null and where.writeDate != ''">
+				AND write_date = #{where.writeDate}
+			</if>
+			<if test="where.createBy != null and where.createBy != ''">
+				AND create_by = #{where.createBy}
+			</if>
+			<if test="where.post != null and where.post != ''">
+				AND Post = #{where.post}
+			</if>
+			<if test="where.createDate != null and where.createDate != ''">
+				AND create_date = #{where.createDate}
+			</if>
+			<if test="where.updateBy != null and where.updateBy != ''">
+				AND update_by = #{where.updateBy}
+			</if>
+			<if test="where.updateDate != null and where.updateDate != ''">
+				AND update_date = #{where.updateDate}
+			</if>
+			<if test="where.status != null and where.status != ''">
+				AND status = #{where.status}
+			</if>
+			<if test="where.reportDate != null and where.reportDate != ''">
+				AND report_date = #{where.reportDate}
+			</if>
+			<if test="where.remarks != null and where.remarks != ''">
+				AND remarks = #{where.remarks}
+			</if>
+			<if test="where.delFlag != null and where.delFlag != ''">
+				AND del_flag = #{where.delFlag}
+			</if>
+			<if test="where.filePath != null and where.filePath != ''">
+				AND file_path = #{where.filePath}
+			</if>
+		</where>
+	</delete>
+</mapper>

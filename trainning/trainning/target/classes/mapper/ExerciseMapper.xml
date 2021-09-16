@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.jad.trainning.mapper.ExerciseMapper">
+    <select id="findByStudent" parameterType="student" resultType="hashMap">
+        SELECT a.id, a.title, a.exercise_filename, a.exercise_url, c.file_name,file_url, c.SCORE,c.CREATE_TIME from course_resource a
+        left JOIN teacher b on a.CREATEROR=b.id
+        left join exercise c on c.COURSE_RESOURCE_ID=a.ID
+        left join student d on c.student_id=d.id
+        WHERE b.CLAZZ_ID=#{clazz.id}
+    </select>
+
+    <insert id="save" parameterType="exercise">
+        insert into exercise(id,course_resource_id,file_name,file_url,student_id,create_time)
+        values (#{id},#{courseResourceId},#{filename},#{fileUrl},#{studentId},#{createTime})
+    </insert>
+</mapper>

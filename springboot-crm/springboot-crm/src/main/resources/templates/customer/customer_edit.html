@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" class="app-ui">
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <!-- Document title -->
+    <title></title>
+
+    <meta name="description" content="AppUI - Admin Dashboard Template & UI Framework" />
+    <meta name="author" content="rustheme" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" th:href="@{/static/assets/img/favicons/apple-touch-icon.png}" />
+    <link rel="icon" th:href="@{/static/assets/img/favicons/favicon.ico}" />
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,900%7CRoboto+Slab:300,400%7CRoboto+Mono:400" />
+
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" th:href="@{/static/assets/js/plugins/slick/slick.min.css}" />
+    <link rel="stylesheet" th:href="@{/static/assets/js/plugins/slick/slick-theme.min.css}" />
+
+    <!-- AppUI CSS stylesheets -->
+    <link rel="stylesheet" id="css-font-awesome" th:href="@{/static/assets/css/font-awesome.css}" />
+    <link rel="stylesheet" id="css-ionicons" th:href="@{/static/assets/css/ionicons.css}" />
+    <link rel="stylesheet" id="css-bootstrap" th:href="@{/static/assets/css/bootstrap.css}" />
+    <link rel="stylesheet" id="css-app" th:href="@{/static/assets/css/app.css}" />
+    <link rel="stylesheet" id="css-app-custom" th:href="@{/static/assets/css/app-custom.css}" />
+    <!-- End Stylesheets -->
+</head>
+<body class="app-ui layout-has-drawer layout-has-fixed-header">
+<div class="card-block">
+    <p>
+        <input type="button" class="btn btn-danger" value="返回" onclick="javascript:history.go(-1)" />
+    </p>
+    <form th:action="@{/customer/update}" method="post" id="form">
+        <input hidden="hidden" name="id" th:value="${customer.id}">
+        <table class="table table-hover">
+            <tbody>
+            <tr>
+                <td class="hidden-xs w-15">姓名</td>
+                <td><input class="form-control" type="text" name="name" th:value="${customer.name}"></td>
+            </tr>
+            <tr>
+                <td class="hidden-xs w-15">性别</td>
+                <td><input type="radio" name="sex" value="1" th:attr='checked=${customer.sex=="1"?"true":"false"}'>男
+                    <input type="radio" name="sex" value="0" th:attr='checked=${customer.sex=="0"?"true":"false"}'>女</td>
+
+            </tr>
+            <tr>
+                <td class="hidden-xs w-15">出生日期</td>
+                <td><input type="date" name="birthday" th:value="${customer.birthday}"></td>
+            </tr>
+            <tr>
+                <td class="hidden-xs w-15">地址</td>
+                <td><input class="form-control" type="text" name="address" th:value="${customer.address}"></td>
+            </tr>
+            <tr>
+                <td class="hidden-xs w-15">电话</td>
+                <td><input class="form-control" type="text" name="telphone" th:value="${customer.telphone}"></td>
+            </tr>
+            <tr>
+                <td class="hidden-xs w-15">邮箱</td>
+                <td><input class="form-control" type="email" name="email" th:value="${customer.email}"></td>
+            </tr>
+            <tr>
+                <td class="hidden-xs w-15">城市</td>
+                <td>
+                    <select name="city.id" id="cities"  class="form-control"  size="1">
+                        <option value="" >请选择</option>
+                        <!--<c:forEach items="${cityList}" var="c" >
+                            <option value="${c.id}" ${customer.city.id==c.id?"selected":""}>${c.name}</option>
+                        </c:forEach>-->
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="hidden-xs w-15">来源</td>
+                <td>
+                    <select name="sources">
+                        <option value="" >请选择</option>
+                        <option value="电话营销" th:attr="selected=${customer.sources=='电话营销'?'true':'false'}">电话营销</option>
+                        <option value="主动上门" th:attr="selected=${customer.sources=='主动上门'?'true':'false'}">主动上门</option>
+                        <option value="客户介绍" th:attr="selected=${customer.sources=='客户介绍'?'true':'false'}">客户介绍</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="hidden-xs w-15">描述</td>
+                <td><textarea name="description" rows="5" cols="20">[[${customer.description}]]</textarea></td>
+
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="提交" class="btn btn-app-blue" id="sub"></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <!--<div class="card-block">
+        <form class="form-horizontal" action="base_forms_pickers_select.html" method="post" onsubmit="return false;">
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="example-masked-date1">姓名</label>
+                <div class="col-md-6">
+                    <input class="js-masked-date form-control" type="text" id="example-masked-date1" name="name" th:value="${customer.name}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="example-masked-date2">性别</label>
+                <div class="col-md-6">
+                    <input class="js-masked-date-dash form-control" type="text" id="example-masked-date2" name="example-masked-date2" placeholder="dd-mm-yyyy" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="example-masked-phone">出生日期</label>
+                <div class="col-md-6">
+                    <input class="js-masked-phone form-control" type="text" id="example-masked-phone" name="example-masked-phone" placeholder="(999) 999-9999" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="example-masked-phone-ext">地址</label>
+                <div class="col-md-6">
+                    <input class="js-masked-phone-ext form-control" type="text" id="example-masked-phone-ext" name="example-masked-phone-ext" placeholder="(999) 999-9999? x99999" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="example-masked-taxid">电话</label>
+                <div class="col-md-6">
+                    <input class="js-masked-taxid form-control" type="text" id="example-masked-taxid" name="example-masked-taxid" placeholder="99-9999999" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="example-masked-ssn">邮箱</label>
+                <div class="col-md-6">
+                    <input class="js-masked-ssn form-control" type="text" id="example-masked-ssn" name="example-masked-ssn" placeholder="999-99-9999" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="example-masked-pkey">城市</label>
+                <div class="col-md-6">
+                    <input class="js-masked-pkey form-control" type="text" id="example-masked-pkey" name="example-masked-pkey" placeholder="a*-999-a999" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="example-masked-pkey">来源</label>
+                <div class="col-md-6">
+                    <input class="js-masked-pkey form-control" type="text"  name="example-masked-pkey" placeholder="a*-999-a999" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="example-masked-pkey">描述</label>
+                <div class="col-md-6">
+                    <input class="js-masked-pkey form-control" type="text"  name="example-masked-pkey" placeholder="a*-999-a999" />
+                </div>
+            </div>
+            <div class="form-group m-b-0">
+                <div class="col-md-8 col-md-offset-4">
+                    <button class="btn btn-app" type="submit">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>-->
+    <!-- .card-block -->
+</div>
+<script th:src="@{/static/assets/js/core/jquery.min.js}"></script>
+<script th:src="@{/static/assets/js/core/bootstrap.min.js}"></script>
+<script th:src="@{/static/assets/js/core/jquery.slimscroll.min.js}"></script>
+<script th:src="@{/static/assets/js/core/jquery.scrollLock.min.js}"></script>
+<script th:src="@{/static/assets/js/core/jquery.placeholder.min.js}"></script>
+<script th:src="@{/static/assets/js/app.js}"></script>
+<script th:src="@{/static/assets/js/app-custom.js}"></script>
+
+<!-- Page Plugins -->
+<script th:src="@{/static/assets/js/plugins/slick/slick.min.js}"></script>
+<script th:src="@{/static/assets/js/plugins/chartjs/Chart.min.js}"></script>
+<script th:src="@{/static/assets/js/plugins/flot/jquery.flot.min.js}"></script>
+<script th:src="@{/static/assets/js/plugins/flot/jquery.flot.pie.min.js}"></script>
+<script th:src="@{/static/assets/js/plugins/flot/jquery.flot.stack.min.js}"></script>
+<script th:src="@{/static/assets/js/plugins/flot/jquery.flot.resize.min.js}"></script>
+
+<script>
+
+
+    /*function deleteById(id){
+        if (confirm("您确定要删除吗?")) {
+            location.href = "teacher/delete/" + id;
+        }
+    }*/
+    $(function(){
+        alert(222);
+            $.ajax({
+                url:"/crm/city/list",
+                // data:{"id":id},
+                type:"post",
+                dataType:"json",
+                success:function(data){
+                    var cityid = [[${customer.city.id}]];
+                    alert(cityid);
+                    $(data).each(function(index,item){
+                        var flag = cityid==item.id?"selected":"";
+                        var child =  "<option value="+item.id+" "+flag+">"+item.name+"</option>";
+                        $("#cities").append(child);
+                    });
+                }
+            });
+        /*$("#add").click(function () {
+            $("#addName").focus();
+        });
+        $("#delete").click(function(){
+            var ids = "";
+            $("input[name=check]:checked").each(function(){
+                ids += $(this).val()+",";
+            });
+            if(ids==""){
+                alert("请选择数据！");
+                return;
+            }else{
+                if(confirm("是否删除？")){
+                    $("#form").submit();
+                }
+            }
+
+        });*/
+    });
+</script>
+</body>
+</html>

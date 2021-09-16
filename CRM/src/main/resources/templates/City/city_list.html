@@ -1,0 +1,246 @@
+<html lang="an" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>城市信息</title>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <meta name="description" content="AppUI - Admin Dashboard Template & UI Framework" />
+    <meta name="author" content="rustheme" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" th:href="@{/assets/img/favicons/apple-touch-icon.png}" />
+    <link rel="icon" th:href="@{/assets/img/favicons/favicon.ico}" />
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,900%7CRoboto+Slab:300,400%7CRoboto+Mono:400" />
+
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" th:href="@{/assets/js/plugins/slick/slick.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/js/plugins/slick/slick-theme.min.css}" />
+
+    <!-- AppUI CSS stylesheets -->
+    <link rel="stylesheet" id="css-font-awesome" th:href="@{/assets/css/font-awesome.css}" />
+    <link rel="stylesheet" id="css-ionicons" th:href="@{/assets/css/ionicons.css}" />
+    <link rel="stylesheet" id="css-bootstrap" th:href="@{/assets/css/bootstrap.css}" />
+    <link rel="stylesheet" id="css-app" th:href="@{/assets/css/app.css}" />
+    <link rel="stylesheet" id="css-app-custom" th:href="@{/assets/css/app-custom.css}" />
+</head>
+<body class="app-ui layout-has-drawer layout-has-fixed-header">
+<div class="container-fluid p-y-md">
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- Hover Table -->
+            <div class="card">
+                <div class="card-header">
+                    <div><input id="add" type="button" class="btn btn-app-blue" value="新增" data-toggle="modal" data-target="#modal-add" />
+                        <input id="del" type="button" class="btn btn-danger" value="删除">
+                    </div>
+                </div>
+                <div class="card-block">
+                    <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
+                        <thead>
+                        <tr>
+                            <th class="text-center" style="width: 50px;"><label for="selectAll">
+                                <input type="checkbox" id="selectAll">
+                            </label>
+                            </th>
+                            <th>序号</th>
+                            <th class="hidden-xs w-15">名称</th>
+                            <th class="text-center" style="width: 150px;">操作</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="c,v: ${list}">
+                            <td class="text-center"><label>
+                                <!--/*@thymesVar id="id" type="city.id"*/-->
+                                <input type="checkbox" th:value="${c.getId()}" name="chk">
+                            </label></td>
+                            <td th:text="${v.index+1}"></td>
+                            <!--/*@thymesVar id="name" type="city.name"*/-->
+                            <td th:text="${c.getName()}" th:onclick=""></td>
+                            <td class="hidden-xs ">
+                                <button class="btn btn-xs btn-default" type="button"  title="Edit client"  data-toggle="modal" data-target="#modal-normal" ><i class="ion-edit"></i></button>
+                                <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Remove client" name="delone" th:value="${c.id}"><i class="ion-close"></i></button>
+                            </td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="card-block">
+                        <nav>
+                            <ul class="pagination pagination-sm">
+                                <!--                                <li th:if="${pageInfo.hasPreviousPage}">-->
+                                <!--                                    <a th:href="@{city/list/${(pageInfo.pageNum)-1}}"><i class="ion-chevron-left"></i></a>-->
+                                <!--                                </li>-->
+                                <!--                                <li class="disabled" th:if="${not pageInfo.hasPreviousPage}">-->
+                                <!--                                    <a href="javascript:void(0)"><i class="ion-chevron-left"></i></a>-->
+                                <!--                                </li>-->
+                                <!--                                <li th:class="${pageInfo.pageNum?'active':''}" th:each="${pageInfo.navigatepageNums}">-->
+                                <!--                                    <a th:href="/teacher/queryList/${pageInfo.navigatepageNums}">${s}</a>-->
+                                <!--                                </li>-->
+
+                                <!--                                <li th:if="${pageInfo.hasNextPage}">-->
+                                <!--                                    <a href="/teacher/queryList/${pageInfo.pageNum+1}"><i class="ion-chevron-right"></i></a>-->
+                                <!--                                </li>-->
+                                <!--                                <li class="disabled" th:if="${not pageInfo.hasNextPage}">-->
+                                <!--                                    <a href="javascript:void(0)"><i class="ion-chevron-right"></i></a>-->
+                                <!--                                </li>-->
+                            </ul>
+                            <!--                            <ul>-->
+                            <!--                                <li>当前第<span th:text="${((pageInfo.pageNum)-1)*pageInfo.pageSize+1}"></span>条——第<span th:text="${pageInfo.hasNextPage?pageInfo.pageNum*pageInfo.pageSize:pageInfo.total}"></span>条记录/共<span th:text="${pageInfo.total}"></span>条记录</li>-->
+                            <!--                                <li >当前共<span th:text="${pageInfo.pages}"></span>页</li>-->
+                            <!--                            </ul>-->
+                        </nav>
+                    </div>
+
+                </div>
+                <!-- .card-block -->
+            </div>
+            <!-- .card -->
+            <!-- End Hover Table -->
+        </div>
+    </div>
+</div>
+
+<!-- Normal Modal -->
+
+<div class="modal" id="modal-add" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card-header bg-green bg-inverse">
+                        <h4>城市添加</h4>
+                        <ul class="card-actions">
+                            <li>
+                                <button data-dismiss="modal" type="button" onclick="window.close()"><i class="ion-close"></i></button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-block">
+                            <form class="js-validation-bootstrap form-horizontal" action="/city/save" method="post" id="form1">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="name">CityName <span class="text-orange">*</span></label>
+                                    <div class="col-md-7">
+                                        <input class="form-control" type="text" id="name" name="name" placeholder="Choose a nice Name..." />
+                                    </div>
+                                </div>
+                                <div class="form-group m-b-0">
+                                    <div class="col-md-8 col-md-offset-5">
+                                        <button class="btn btn-app" type="submit">保存</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- .card-block -->
+                    </div>
+                    <!-- .card -->
+                    <!-- Bootstrap Forms Validation -->
+                </div>
+                <!-- .card -->
+                <!-- End Material (floating) registration -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="modal-normal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card-header bg-green bg-inverse">
+                        <h4>城市修改</h4>
+                        <ul class="card-actions">
+                            <li>
+                                <button data-dismiss="modal" type="button" onclick="window.close()"><i class="ion-close"></i></button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-block">
+                            <form class="js-validation-bootstrap form-horizontal" action="/city/save" method="post" id="form2">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="name">CityName <span class="text-orange">*</span></label>
+                                    <div class="col-md-7" >
+                                        <input class="form-control" type="text" id="cityName" name="name" placeholder="Choose a nice Name..." />
+                                    </div>
+                                </div>
+                                <div class="form-group m-b-0">
+                                    <div class="col-md-8 col-md-offset-5">
+                                        <button class="btn btn-app" type="submit" onclick="sub()">保存</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- .card-block -->
+                    </div>
+                    <!-- .card -->
+                    <!-- Bootstrap Forms Validation -->
+                </div>
+                <!-- .card -->
+                <!-- End Material (floating) registration -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- .col-lg-4 -->
+<!-- End Apps Modal -->
+<!-- End Apps Modal -->
+<script src="/assets/js/core/jquery.min.js"></script>
+<script src="/assets/js/core/bootstrap.min.js"></script>
+<script src="/assets/js/core/jquery.slimscroll.min.js"></script>
+<script src="/assets/js/core/jquery.scrollLock.min.js"></script>
+<script src="/assets/js/core/jquery.placeholder.min.js"></script>
+<script src="/assets/js/app.js"></script>
+<script src="/assets/js/app-custom.js"></script>
+<!-- Page Plugins -->
+<script src="/assets/js/plugins/slick/slick.min.js"></script>
+<script src="/assets/js/plugins/chartjs/Chart.min.js"></script>
+<script src="/assets/js/plugins/flot/jquery.flot.min.js"></script>
+<script src="/assets/js/plugins/flot/jquery.flot.pie.min.js"></script>
+<script src="/assets/js/plugins/flot/jquery.flot.stack.min.js"></script>
+<script src="/assets/js/plugins/flot/jquery.flot.resize.min.js"></script>
+<script src="/assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
+
+<!-- Page JS Code -->
+<script src="/assets/js/pages/base_tables_datatables.js"></script>
+<script>
+    $(function(){
+        $("button[name=delone]").click(function (){
+            var id = $("button[name=delone]").val();
+            alert(id);
+            if (confirm("是否删除？")){
+                location.href = "/city/delete?id="+id;
+            }else {
+                return false;
+            }
+        });
+        $("#del").click(function (){
+            var ids = "";
+            $("input[name=chk]:checked").each(function (){
+                ids += $(this).val() + ",";
+            });
+            if (ids==""){
+                alert("请输入要删除的数据！");
+            }else {
+                if (confirm("确定要删除吗？")){
+                    ids = ids.substring(0,ids.length-1);
+                    location.href = "/city/deleteAll/"+ids;
+                }
+            }
+        });
+        $("#selectAll").click(function (){
+            let flag = $(this).prop("checked");
+            $("input[name=chk]").each(function (){
+                $(this).prop("checked",flag);
+            });
+        });
+    });
+</script>
+</body>
+</html>

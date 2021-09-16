@@ -1,0 +1,24 @@
+
+^
+java:S2095="HUse try-with-resources or close this "SqlSession" in a "finally" clause.(å„Ş
+^
+java:S2095U"HUse try-with-resources or close this "SqlSession" in a "finally" clause.(å„Ş
+^
+java:S2095c"HUse try-with-resources or close this "SqlSession" in a "finally" clause.(å„Ş
+^
+java:S2095m"HUse try-with-resources or close this "SqlSession" in a "finally" clause.(å„Ş
+N	java:S106,"9Replace this use of System.out or System.err by a logger.(Ø¼¢ƒ
+S	java:S1063"9Replace this use of System.out or System.err by a logger.(ã¿¢Ôùÿÿÿÿ
+R
+java:S18547"7Remove this useless assignment to local variable "dao".(Å•œ½üÿÿÿÿ
+N	java:S106D"9Replace this use of System.out or System.err by a logger.(Ü’Šâ
+V	java:S125G"<This block of commented-out lines of code should be removed.(•¤ïëùÿÿÿÿ
+N	java:S106]"9Replace this use of System.out or System.err by a logger.(Ø¼¢ƒ
+W
+java:S1854d":Remove this useless assignment to local variable "mapper".(¾…8—ÌÏÅš/
+]	java:S125e"<This block of commented-out lines of code should be removed.(ÅØâûÿÿÿÿ8—ÌÏÅš/
+N	java:S106p"9Replace this use of System.out or System.err by a logger.(˜âëª
+C
+java:S14817"(Remove this unused "dao" local variable.(Å•œ½üÿÿÿÿ
+H
+java:S1481d"+Remove this unused "mapper" local variable.(¾…8šÌÏÅš/

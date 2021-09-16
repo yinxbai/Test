@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test">
+    <select id="findById" parameterType="int" resultType="com.jad.po.User">
+        select * from user where id=#{id}
+    </select>
+    <select id="findByName" parameterType="String" resultType="com.jad.po.User">
+        select * from user where name like '%${name}%'
+    </select>
+    <insert id="save" parameterType="com.jad.po.User">
+        insert into user (id,number,name,gender,age) values(#{id},#{number},#{name},#{gender},#{age})
+        <selectKey resultType="integer" keyProperty="id" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+    </insert>
+</mapper>

@@ -1,0 +1,9 @@
+
+JWeb:PageWithoutTitleCheck"Add a <title> tag to this page.(Õ¶¯M8‘×¨î¢/
+TWeb:TableWithoutCaptionCheck" Add a description to this table.(­ã’Òÿÿÿÿÿ8 ×¨î¢/
+s Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(àóú…ýÿÿÿÿ8¡×¨î¢/
+s Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(ˆŸí…ÿÿÿÿÿ8¡×¨î¢/
+n Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(À–˜ç8¡×¨î¢/
+n Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(«À¨²8¡×¨î¢/
+n Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(Ú±Â·8¡×¨î¢/
+m Web:TableHeaderHasIdOrScopeCheck ";Add either an 'id' or a 'scope' attribute to this <th> tag.(ñ¢Å8¡×¨î¢/

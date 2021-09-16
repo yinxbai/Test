@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.txdata.modules.daily.dao.DailyDao">
+
+    <resultMap type="com.txdata.modules.daily.entity.Daily" id="DailyMap">
+        <result property="id" column="id"/>
+        <result property="dept" column="dept"/>
+        <result property="writeUser" column="write_user"/>
+        <result property="writeDate" column="write_date" jdbcType="TIMESTAMP"/>
+        <result property="createBy" column="create_by"/>
+        <result property="post" column="Post"/>
+        <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+        <result property="status" column="status"/>
+        <result property="reportDate" column="report_date" jdbcType="TIMESTAMP"/>
+        <result property="remarks" column="remarks"/>
+        <result property="delFlag" column="del_flag"/>
+        <result property="filePath" column="file_path"/>
+    </resultMap>
+
+    <resultMap id="Daily" type="com.txdata.modules.daily.entity.Daily" >
+        <result property="id" column="id"/>
+        <result property="title" column="title" />
+        <result property="dept" column="dept"/>
+        <result property="writeUser" column="write_user"/>
+        <result property="writeDate" column="write_date" jdbcType="TIMESTAMP"/>
+        <result property="post" column="Post"/>
+        <result property="reportDate" column="report_date" jdbcType="TIMESTAMP"/>
+        <result property="status" column="status"/>
+        <result property="filePath" column="file_path"/>
+        <collection property="dailyTasks" column="id" ofType="com.txdata.modules.daily.entity.DailyTask">
+            <id property="dailyId" column="bdailyId" />
+            <result property="dailyTaskType" column="daily_task_type" />
+            <result property="projectId" column="project_id" />
+            <result property="usetime" column="usetime" />
+            <result property="percentComplete" column="percent_complete" />
+            <result property="remarks" column="remarks" />
+        </collection>
+        <collection property="dailyArranges" column="id" ofType="com.txdata.modules.daily.entity.DailyArrange">
+            <id property="dailyId" column="cdailyId" />
+            <result property="dailyTaskType" column="daily_task_type" />
+            <result property="finishDate" column="finish_date" />
+            <result property="remarks" column="remarks" />
+        </collection>
+      </resultMap>
+
+    <resultMap id="project" type="com.txdata.modules.daily.entity.DailyTask">
+        <result property="id" column="id"/>
+        <result property="dailyId" column="daily_id"/>
+        <result property="projectId" column="project_id"/>
+        <result property="dailyTaskType" column="daily_task_type"/>
+        <result property="usetime" column="usetime" jdbcType="NUMERIC"/>
+        <result property="percentComplete" column="percent_complete" jdbcType="INTEGER"/>
+        <result property="remarks" column="remarks"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+        <collection property="projects" column="project_id" ofType="com.txdata.modules.daily.entity.Project">
+            <id property="id" column="pid" />
+            <result property="name" column="pname" />
+        </collection>
+    </resultMap>
+
+    <sql id="dailyColumns">
+        a.`id` AS "id",
+        a.`write_user` AS "writeUser",
+        a.`post` AS "post",
+        a.`dept` AS "dept",
+        a.`report_date` AS "reportDate",
+        a.`write_date` AS "writeDate",
+        a.`status` AS "status",
+        a.`del_flag` AS "delFlag",
+        b.`daily_id` AS "tdailyId",
+        b.`daily_task_type` AS "taskType",
+        b.`project_id` AS "projectId",
+        b.`usetime` AS "usetime",
+        b.`percent_complete` AS "percentComplete",
+        b.`remarks` AS "tremarks",
+        d.`daily_id` AS "adailyId",
+        d.`daily_task_type` AS "arrangeType",
+        d.`finish_date` AS "finishDate",
+        d.`remarks` AS "aremarks"
+    </sql>
+
+
+
+    <select id="queryById" resultMap="Daily">
+        SELECT
+            a.id,
+            a.title,
+            a.dept,
+            a.write_user,
+            a.write_date,
+            a.Post,
+            a.report_date,
+            a.`status`,
+            a.file_path,
+            c.daily_id cdailyId,
+            c.daily_task_type,
+            c.remarks,
+            c.finish_date,
+            b.daily_id bdailyId,
+            b.project_id,
+            b.daily_task_type,
+            b.usetime,
+            b.percent_complete,
+            b.remarks
+        FROM
+            t_daily as a
+                LEFT JOIN
+            t_daily_arrange as c
+            ON
+                a.id = c.daily_id
+                LEFT JOIN
+            t_daily_task as b
+            ON
+                a.id = b.daily_id
+        WHERE
+            a.id = #{id}
+    </select>
+
+
+    <!--查询单个-->
+    <!--<select id="queryById" resultMap="DailyMap">
+        select id,
+               dept,
+               write_user,
+               write_date,
+               create_by,
+               Post,
+               create_date,
+               update_by,
+               update_date,
+               status,
+               report_date,
+               remarks,
+               del_flag,
+               file_path
+        from txdata.t_daily
+        where id = #{id}
+    </select>-->
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="DailyMap">
+        select id,
+               dept,
+               write_user,
+               write_date,
+               create_by,
+               Post,
+               create_date,
+               update_by,
+               update_date,
+               status,
+               report_date,
+               remarks,
+               del_flag,
+               file_path
+        from txdata.t_daily limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="DailyMap">
+        select
+        id, dept, write_user, write_date, create_by, Post, create_date, update_by, update_date, status, report_date,
+        remarks, del_flag, file_path
+        from txdata.t_daily
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="dept != null and dept != ''">
+                and dept = #{dept}
+            </if>
+            <if test="writeUser != null and writeUser != ''">
+                and write_user = #{writeUser}
+            </if>
+            <if test="writeDate != null">
+                and write_date = #{writeDate}
+            </if>
+            <if test="createBy != null and createBy != ''">
+                and create_by = #{createBy}
+            </if>
+            <if test="post != null and post != ''">
+                and Post = #{post}
+            </if>
+            <if test="createDate != null">
+                and create_date = #{createDate}
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                and update_by = #{updateBy}
+            </if>
+            <if test="updateDate != null">
+                and update_date = #{updateDate}
+            </if>
+            <if test="status != null and status != ''">
+                and status = #{status}
+            </if>
+            <if test="reportDate != null">
+                and report_date = #{reportDate}
+            </if>
+            <if test="remarks != null and remarks != ''">
+                and remarks = #{remarks}
+            </if>
+            <if test="delFlag != null and delFlag != ''">
+                and del_flag = #{delFlag}
+            </if>
+            <if test="filePath != null and filePath != ''">
+                and file_path = #{filePath}
+            </if>
+        </where>
+    </select>
+    <select id="QueryByTask" resultType="com.txdata.modules.daily.entity.DailyTask">
+        SELECT
+            b.id,
+            b.daily_task_type,
+            b.project_id,
+            b.usetime,
+            b.percent_complete,
+            b.remarks,
+            a.`status`,
+            a.file_path
+        FROM
+            t_daily_task as b
+                LEFT JOIN
+            t_daily as a
+            ON
+                b.daily_id = a.id
+        WHERE
+            b.id = #{id}
+    </select>
+    <select id="queryByProject" resultMap="project">
+        SELECT
+            b.id,
+            b.daily_id,
+            b.project_id,
+            b.daily_task_type,
+            b.usetime,
+            b.percent_complete,
+            b.remarks,
+            b.create_by,
+            b.create_date,
+            b.update_by,
+            b.update_date
+        FROM
+            t_project as a
+                LEFT JOIN
+            t_daily_task as b
+            ON
+                a.id = b.project_id
+        WHERE b.project_id = #{projectId} and b.create_by =#{writeUser}
+    </select>
+    <select id="list" resultType="com.txdata.modules.daily.entity.Daily">
+        SELECT
+        <include refid="dailyColumns" />
+        FROM t_daily AS a
+        LEFT JOIN t_daily_task AS b ON a.id = b.daily_id
+        LEFT JOIN t_daily_arrange AS d ON a.id = d.daily_id
+        <where>
+            a.del_flag = '0'
+            <if test="entity.id != null and entity.id != ''">
+                AND a.id = #{entity.id}
+            </if>
+            <if test="entity.write_user != null and entity.write_user != ''">
+                AND a.write_user = #{entity.write_user}
+            </if>
+            <if test="entity.post != null and entity.post != ''">
+                AND a.post = #{entity.post}
+            </if>
+            <if test="entity.dept != null and entity.dept != ''">
+                AND a.dept = #{entity.dept}
+            </if>
+            <if test="entity.report_date != null and entity.report_date != ''">
+                AND a.report_date = #{entity.report_date}
+            </if>
+            <if test="entity.write_date != null and entity.write_date != ''">
+                AND a.write_date = #{entity.write_date}
+            </if>
+            <if test="entity.status != null and entity.status != ''">
+                AND a.status = #{entity.status}
+            </if>
+        </where>
+        ORDER BY a.update_date DESC
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into txdata.t_daily(dept, write_user, write_date, create_by, Post, create_date, update_by, update_date,
+                                   status, report_date, remarks, del_flag, file_path)
+        values (#{dept}, #{writeUser}, #{writeDate}, #{createBy}, #{post}, #{createDate}, #{updateBy}, #{updateDate},
+                #{status}, #{reportDate}, #{remarks}, #{delFlag}, #{filePath})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into txdata.t_daily(dept, write_user, write_date, create_by, Post, create_date, update_by, update_date,
+        status, report_date, remarks, del_flag, file_path)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.dept}, #{entity.writeUser}, #{entity.writeDate}, #{entity.createBy}, #{entity.post},
+            #{entity.createDate}, #{entity.updateBy}, #{entity.updateDate}, #{entity.status}, #{entity.reportDate},
+            #{entity.remarks}, #{entity.delFlag}, #{entity.filePath})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into txdata.t_daily(dept, write_user, write_date, create_by, Post, create_date, update_by, update_date,
+        status, report_date, remarks, del_flag, file_path)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.dept}, #{entity.writeUser}, #{entity.writeDate}, #{entity.createBy}, #{entity.post},
+            #{entity.createDate}, #{entity.updateBy}, #{entity.updateDate}, #{entity.status}, #{entity.reportDate},
+            #{entity.remarks}, #{entity.delFlag}, #{entity.filePath})
+        </foreach>
+        on duplicate key update
+        dept = values(dept) , write_user = values(write_user) , write_date = values(write_date) , create_by =
+        values(create_by) , Post = values(Post) , create_date = values(create_date) , update_by = values(update_by) ,
+        update_date = values(update_date) , status = values(status) , report_date = values(report_date) , remarks =
+        values(remarks) , del_flag = values(del_flag) , file_path = values(file_path)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update txdata.t_daily
+        <set>
+            <if test="dept != null and dept != ''">
+                dept = #{dept},
+            </if>
+            <if test="writeUser != null and writeUser != ''">
+                write_user = #{writeUser},
+            </if>
+            <if test="writeDate != null">
+                write_date = #{writeDate},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by = #{createBy},
+            </if>
+            <if test="post != null and post != ''">
+                Post = #{post},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by = #{updateBy},
+            </if>
+            <if test="updateDate != null">
+                update_date = #{updateDate},
+            </if>
+            <if test="status != null and status != ''">
+                status = #{status},
+            </if>
+            <if test="reportDate != null">
+                report_date = #{reportDate},
+            </if>
+            <if test="remarks != null and remarks != ''">
+                remarks = #{remarks},
+            </if>
+            <if test="delFlag != null and delFlag != ''">
+                del_flag = #{delFlag},
+            </if>
+            <if test="filePath != null and filePath != ''">
+                file_path = #{filePath},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        UPDATE t_daily
+        SET `del_flag` = '1'
+        WHERE id = #{id}
+    </delete>
+
+</mapper>
+

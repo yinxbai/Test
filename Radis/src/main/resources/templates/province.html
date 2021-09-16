@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns>
+<head>
+    <meta charset="UTF-8">
+    <title>城市</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Springboot实战Thymeleaf案例</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css"/>
+
+</head>
+<body>
+<select id="select" >
+    <option value="-1" >--请选择--</option>
+</select>
+</body>
+<script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.js"></script>
+<script type="javascript" src="./js/jquery-3.2.1.min.js"></script>
+<script>
+   $(function(){
+       $.ajax({
+           url:"getAllProvince",
+           type: 'get',
+           dataType: 'json',
+           success:function (data){
+               $("select").find('option').remove();
+               $("select").append("<option value=''>--请选择--</option>");
+               $.each(data,function(index,item){
+                   $("select").append("<option value='"+item.id+"'>"+item.name+"</option>");
+               });
+           }
+       });
+   })
+</script>
+</html>

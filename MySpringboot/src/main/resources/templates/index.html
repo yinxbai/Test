@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Springboot实战Thymeleaf案例</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css"/>
+    <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+    <script type="javascript" src="./js/jquery-3.2.1.min.js"></script>
+    <style type="text/css">
+        tr{
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript">
+        function search(){
+            let keywords = $("#keywords").val();
+            location.href = "index?keywords="+keywords;
+        }
+    </script>
+</head>
+<body>
+    <div th:insert="common::header"></div>
+<div class="container">
+    <div class="row"><p class="lead"><h4><a th:href="#{aop.home.website}">首页</a>&nbsp;/&nbsp;实战案例&nbsp;/&nbsp;Thymeleaf模板引擎实战</h4></p></div>
+    <div class="row"><h3 class="text-center" th:text="#{app.report.title}"></h3></div>
+    <div class="row">
+        <div class="col-md-4">
+            <p class="text-right">
+                <input type="text" name="keywords" class="form-control" placeholder="请输入要查询的员工" id="keywords" th:value="${param.keywords}">
+            </p>
+        </div>
+        <div class="col-md-1">
+            <p class="text-left"><button class="btn btn-primary" onclick="search()">搜索</button></p>
+        </div>
+    </div>
+    <div class="row table-responsive" >
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td>序号</td>
+                <td>员工编号</td>
+                <td>姓名</td>
+                <td>部门</td>
+                <td>岗位</td>
+                <td>入司时间</td>
+                <td>工资</td>
+                <td>奖金</td>
+                <td>操作&nbsp;</td>
+            </tr>
+            <tr th:each="emp,e:${empList}">
+                <td th:text="${e.index+1}"></td>
+                <td th:text="${emp.id}"></td>
+                <td th:text="${#strings.toLowerCase(emp.name)}"></td>
+                <td th:switch="${emp.deptName}">
+                    <span th:case="ACCOUNTING">财务部</span>
+                    <span th:case="RESEARCH">研究部</span>
+                    <span th:case="SALES">销售部</span>
+                </td>
+                <td th:style="${emp.getJob()=='MANAGER' || emp.getJob()=='PRESIDENT'}?'color:red':''"><span>[[${emp.job}]]</span></td>
+                <td th:text="${#dates.format(emp.hireDate,'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td th:text="${#numbers.formatCurrency(emp.salary)}" th:bgcolor="${emp.salary>=1500?'skyblue':''}"> </td>
+                <td th:text="${emp.comm==null?'N/A':#numbers.formatCurrency(emp.comm)}"></td>
+                <td>
+                    <button class="btn btn-primary btn-xs">详情</button>
+                    <button class="btn btn-warning btn-xs">删除</button>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+</body>
+</html>

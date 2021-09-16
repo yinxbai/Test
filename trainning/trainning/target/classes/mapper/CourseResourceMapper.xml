@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.jad.trainning.mapper.CourseResourceMapper">
+    <resultMap id="findAllByTeacherMap" type="courseResource">
+        <id column="id" property="id"></id>
+        <result column="title" property="title"></result>
+        <result column="ppt_url" property="pptUrl"></result>
+        <result column="ppt_filename" property="pptFileName"></result>
+        <result column="video_url" property="videoUrl"></result>
+        <result column="video_filename" property="videoFileName"></result>
+        <result column="exercise_url" property="exerciseUrl"></result>
+        <result column="exercise_filename" property="exerciseFileName"></result>
+        <result column="create_time" property="createTime"></result>
+        <association column="createror" property="createror" javaType="Teacher">
+            <id column="tid" property="id"></id>
+            <result column="name" property="name"></result>
+        </association>
+    </resultMap>
+
+    <select id="findAllByTeacher"  parameterType="string" resultMap="findAllByTeacherMap">
+        select a.*, b.id tid,b.name from course_resource a, teacher b where a.createror=b.id and a.createror=#{teacherId} order by a.create_time desc
+    </select>
+
+
+
+    <insert id="save" parameterType="courseResource">
+        insert into course_resource(id,title,ppt_Url,ppt_filename,video_Url,video_filename,exercise_Url,exercise_filename,createror,create_time)
+        values(#{id},#{title},#{pptUrl},#{pptFileName},#{videoUrl},#{videoFileName},#{exerciseUrl},#{exerciseFileName},#{createror.id},#{createTime})
+    </insert>
+
+</mapper>

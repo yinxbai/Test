@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.txdata.modules.daily.dao.DailyArrangeDao">
+
+    <resultMap type="com.txdata.modules.daily.entity.DailyArrange" id="DailyArrangeMap">
+        <result property="id" column="id"/>
+        <result property="dailyId" column="daily_id"/>
+        <result property="dailyTaskType" column="daily_task_type"/>
+        <result property="remarks" column="remarks"/>
+        <result property="finishDate" column="finish_date" jdbcType="TIMESTAMP"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+        <result property="sort" column="sort"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="DailyArrangeMap">
+        select id,
+               daily_id,
+               daily_task_type,
+               remarks,
+               finish_date,
+               create_by,
+               create_date,
+               update_by,
+               update_date,
+               sort
+        from txdata.t_daily_arrange
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="DailyArrangeMap">
+        select id,
+               daily_id,
+               daily_task_type,
+               remarks,
+               finish_date,
+               create_by,
+               create_date,
+               update_by,
+               update_date,
+               sort
+        from txdata.t_daily_arrange limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="DailyArrangeMap">
+        select
+        id, daily_id, daily_task_type, remarks, finish_date, create_by, create_date, update_by, update_date, sort
+        from txdata.t_daily_arrange
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="dailyId != null and dailyId != ''">
+                and daily_id = #{dailyId}
+            </if>
+            <if test="dailyTaskType != null and dailyTaskType != ''">
+                and daily_task_type = #{dailyTaskType}
+            </if>
+            <if test="remarks != null and remarks != ''">
+                and remarks = #{remarks}
+            </if>
+            <if test="finishDate != null">
+                and finish_date = #{finishDate}
+            </if>
+            <if test="createBy != null and createBy != ''">
+                and create_by = #{createBy}
+            </if>
+            <if test="createDate != null">
+                and create_date = #{createDate}
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                and update_by = #{updateBy}
+            </if>
+            <if test="updateDate != null">
+                and update_date = #{updateDate}
+            </if>
+            <if test="sort != null and sort != ''">
+                and sort = #{sort}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into txdata.t_daily_arrange(daily_id, daily_task_type, remarks, finish_date, create_by, create_date,
+                                           update_by, update_date, sort)
+        values (#{dailyId}, #{dailyTaskType}, #{remarks}, #{finishDate}, #{createBy}, #{createDate}, #{updateBy},
+                #{updateDate}, #{sort})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into txdata.t_daily_arrange(daily_id, daily_task_type, remarks, finish_date, create_by, create_date,
+        update_by, update_date, sort)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.dailyId}, #{entity.dailyTaskType}, #{entity.remarks}, #{entity.finishDate}, #{entity.createBy},
+            #{entity.createDate}, #{entity.updateBy}, #{entity.updateDate}, #{entity.sort})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into txdata.t_daily_arrange(daily_id, daily_task_type, remarks, finish_date, create_by, create_date,
+        update_by, update_date, sort)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.dailyId}, #{entity.dailyTaskType}, #{entity.remarks}, #{entity.finishDate}, #{entity.createBy},
+            #{entity.createDate}, #{entity.updateBy}, #{entity.updateDate}, #{entity.sort})
+        </foreach>
+        on duplicate key update
+        daily_id = values(daily_id) , daily_task_type = values(daily_task_type) , remarks = values(remarks) ,
+        finish_date = values(finish_date) , create_by = values(create_by) , create_date = values(create_date) ,
+        update_by = values(update_by) , update_date = values(update_date) , sort = values(sort)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update txdata.t_daily_arrange
+        <set>
+            <if test="dailyId != null and dailyId != ''">
+                daily_id = #{dailyId},
+            </if>
+            <if test="dailyTaskType != null and dailyTaskType != ''">
+                daily_task_type = #{dailyTaskType},
+            </if>
+            <if test="remarks != null and remarks != ''">
+                remarks = #{remarks},
+            </if>
+            <if test="finishDate != null">
+                finish_date = #{finishDate},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by = #{createBy},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by = #{updateBy},
+            </if>
+            <if test="updateDate != null">
+                update_date = #{updateDate},
+            </if>
+            <if test="sort != null and sort != ''">
+                sort = #{sort},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from txdata.t_daily_arrange
+        where id = #{id}
+    </delete>
+
+</mapper>
+

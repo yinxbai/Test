@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="trainning" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b9ec4891-7132-4d63-ba2d-c5498c8ad505" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/config/MvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/controller/CityController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/controller/LogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/controller/SysUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/dao/CityDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/dao/CustomerDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/dao/LogDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/dao/SysUserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/entity/City.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/entity/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/entity/Log.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/entity/SysUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/service/CityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/service/LogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/service/SysUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/service/impl/CityServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/service/impl/CustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/service/impl/LogServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/java/com/ll/crm/service/impl/SysUserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/mapper/CityDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/mapper/CustomerDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/mapper/LogDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/mapper/SysUserDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/app-custom.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/ionicons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/maps/app-custom.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/maps/app.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/maps/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/maps/font-awesome.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/css/maps/ionicons.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/ionicons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/ionicons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/ionicons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/fonts/ionicons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/avatars/avatar9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/favicons/apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/favicons/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/logo/logo-backend.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/logo/logo-frontend.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/misc/base_pages_profile_header_bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/misc/frontend_about1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/misc/frontend_about2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/misc/frontend_header_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/misc/frontend_home1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/misc/frontend_home2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/misc/frontend_home3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/misc/frontend_home4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/photos/photo1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/photos/photo2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/photos/photo3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/photos/photo4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/photos/photo5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/img/photos/photo6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/app-custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/core/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/core/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/core/jquery.placeholder.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/core/jquery.scrollLock.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/core/jquery.slimscroll.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/base_forms_validation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/base_forms_wizard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/base_js_charts_chartjs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/base_js_charts_flot.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/base_js_charts_sparkline.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/base_js_maps.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/base_tables_datatables.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/base_ui_progress.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/frontend_contact.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/pages/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-colorpicker/img/bootstrap-colorpicker/alpha-horizontal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-colorpicker/img/bootstrap-colorpicker/alpha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-colorpicker/img/bootstrap-colorpicker/hue-horizontal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-colorpicker/img/bootstrap-colorpicker/hue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-colorpicker/img/bootstrap-colorpicker/saturation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-datepicker/bootstrap-datepicker3.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-notify/bootstrap-notify.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/chartjs/Chart.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/datatables/jquery.dataTables.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/datatables/jquery.dataTables.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/dropzonejs/dropzone.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/dropzonejs/dropzone.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/flot/jquery.flot.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/flot/jquery.flot.pie.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/flot/jquery.flot.resize.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/flot/jquery.flot.stack.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/fullcalendar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/fullcalendar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/fullcalendar.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/fullcalendar.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/fullcalendar.print.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/gcal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/gcal.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/lang-all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/fullcalendar/moment.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/gmapsjs/gmaps.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/highlightjs/github-gist.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/highlightjs/highlight.pack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/jquery-tags-input/jquery.tagsinput.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/jquery-tags-input/jquery.tagsinput.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/jquery-ui/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/jquery-validation/jquery.validate.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/magnific-popup/magnific-popup.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/magnific-popup/magnific-popup.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/masked-inputs/jquery.maskedinput.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/select2/select2-bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/select2/select2.full.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/select2/select2.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/slick/ajax-loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/slick/fonts/slick.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/slick/fonts/slick.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/slick/fonts/slick.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/slick/fonts/slick.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/slick/slick-theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/slick/slick.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/slick/slick.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/static/assets/js/plugins/sparkline/jquery.sparkline.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/templates/common.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/src/main/resources/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MySpringboot/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MySpringboot/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MySpringboot/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MySpringboot/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MySpringboot/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MySpringboot/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MySpringboot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MySpringboot/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/MySpringbootApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/MySpringbootApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/controller/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/mapper/StudentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/mapper/StudentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/pojo/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/pojo/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/service/IStudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/service/IStudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/service/impl/StudentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MySpringboot/src/main/java/com/yq/myspringboot/service/impl/StudentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MySpringboot/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../MySpringboot/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MySpringboot/src/main/resources/mapper/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MySpringboot/src/main/resources/mapper/StudentMapper.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="1tiWD7g6bfCheSf7gzZ4eUVdlBh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="abbreviatePackageNames" value="true" />
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.17165357" />
+    <property name="settings.editor.selected.configurable" value="preferences.language.Kotlin.scripting" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 8.5.66" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.66" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="trainning">
+          <settings>
+            <option name="CONTEXT_PATH" value="/trainning" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="26fc1744-140a-4334-b09e-8601f8e27f1f" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="64713" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="trainning" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b9ec4891-7132-4d63-ba2d-c5498c8ad505" name="Default Changelist" comment="" />
+      <created>1623252269511</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623252269511</updated>
+      <workItem from="1623252271589" duration="8000" />
+      <workItem from="1625029609070" duration="138000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

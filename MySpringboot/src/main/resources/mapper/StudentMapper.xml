@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yq.myspringboot.mapper.StudentMapper">
+
+    <select id="findAll" resultType="com.yq.myspringboot.pojo.Student">
+        select  * from  student
+    </select>
+
+    <insert id="save" parameterType="com.yq.myspringboot.pojo.Student">
+       insert into student values(#{id},#{account},#{password},#{name},#{birthday},null,null,null)
+    </insert>
+
+</mapper>

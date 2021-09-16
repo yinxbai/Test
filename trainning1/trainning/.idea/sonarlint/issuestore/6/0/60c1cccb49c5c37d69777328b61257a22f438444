@@ -1,0 +1,27 @@
+
+cWeb:DoctypePresenceCheck
+":Insert a <!DOCTYPE> declaration to before this <html> tag.(œ÷Ãûÿÿÿÿ
+Z	Web:S5254
+"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷Ãûÿÿÿÿ
+MWeb:TableWithoutCaptionCheck=" Add a description to this table.(­ã’Òÿÿÿÿÿ
+l Web:TableHeaderHasIdOrScopeCheck@";Add either an 'id' or a 'scope' attribute to this <th> tag.(àóú…ıÿÿÿÿ
+l Web:TableHeaderHasIdOrScopeCheckA";Add either an 'id' or a 'scope' attribute to this <th> tag.(ˆŸí…ÿÿÿÿÿ
+g Web:TableHeaderHasIdOrScopeCheckB";Add either an 'id' or a 'scope' attribute to this <th> tag.(¤§¶¨
+l Web:TableHeaderHasIdOrScopeCheckC";Add either an 'id' or a 'scope' attribute to this <th> tag.(¯İÂ¢ùÿÿÿÿ
+HWeb:BoldAndItalicTagsCheckN"Replace this <i> tag by <em>.(ûÍÛŸûÿÿÿÿ
+HWeb:BoldAndItalicTagsCheckO"Replace this <i> tag by <em>.(øÜ¨öıÿÿÿÿ
+CWeb:BoldAndItalicTagsCheckj"Replace this <i> tag by <em>.(ˆû‰
+DWeb:BoldAndItalicTagsCheck‡"Replace this <i> tag by <em>.(ˆû‰
+cWeb:DoctypePresenceCheck
+":Insert a <!DOCTYPE> declaration to before this <html> tag.(œ÷Ãûÿÿÿÿ
+Z	Web:S5254
+"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷Ãûÿÿÿÿ
+MWeb:TableWithoutCaptionCheck=" Add a description to this table.(­ã’Òÿÿÿÿÿ
+l Web:TableHeaderHasIdOrScopeCheck@";Add either an 'id' or a 'scope' attribute to this <th> tag.(àóú…ıÿÿÿÿ
+l Web:TableHeaderHasIdOrScopeCheckA";Add either an 'id' or a 'scope' attribute to this <th> tag.(ˆŸí…ÿÿÿÿÿ
+g Web:TableHeaderHasIdOrScopeCheckB";Add either an 'id' or a 'scope' attribute to this <th> tag.(¤§¶¨
+l Web:TableHeaderHasIdOrScopeCheckC";Add either an 'id' or a 'scope' attribute to this <th> tag.(¯İÂ¢ùÿÿÿÿ
+HWeb:BoldAndItalicTagsCheckN"Replace this <i> tag by <em>.(ûÍÛŸûÿÿÿÿ
+HWeb:BoldAndItalicTagsCheckO"Replace this <i> tag by <em>.(øÜ¨öıÿÿÿÿ
+CWeb:BoldAndItalicTagsCheckj"Replace this <i> tag by <em>.(ˆû‰
+DWeb:BoldAndItalicTagsCheck‡"Replace this <i> tag by <em>.(ˆû‰

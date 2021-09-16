@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yq.mapper.ClazzMapper">
+
+    <select id="findAll" resultType="com.yq.po.Clazz">
+        select * from clazz
+    </select>
+
+    <select id="findByName" resultType="com.yq.po.Clazz" parameterType="string">
+        select * from clazz where name=#{name}
+    </select>
+
+    <delete id="deleteById" parameterType="String">
+        delete from clazz where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="clazz">
+        update clazz set NAME=#{name} where ID =#{id}
+    </update>
+
+    <insert id="save" parameterType="clazz">
+        insert into clazz values(#{id},#{name})
+    </insert>
+</mapper>

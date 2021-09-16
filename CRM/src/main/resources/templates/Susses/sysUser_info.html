@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>个人信息</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <meta name="description" content="AppUI - Admin Dashboard Template & UI Framework" />
+    <meta name="author" content="rustheme" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" th:href="@{/assets/img/favicons/apple-touch-icon.png}" />
+    <link rel="icon" th:href="@{/assets/img/favicons/favicon.ico}" />
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,900%7CRoboto+Slab:300,400%7CRoboto+Mono:400" />
+
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" th:href="@{/assets/js/plugins/slick/slick.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/js/plugins/slick/slick-theme.min.css}" />
+
+    <!-- AppUI CSS stylesheets -->
+    <link rel="stylesheet" id="css-font-awesome" th:href="@{/assets/css/font-awesome.css}" />
+    <link rel="stylesheet" id="css-ionicons" th:href="@{/assets/css/ionicons.css}" />
+    <link rel="stylesheet" id="css-bootstrap" th:href="@{/assets/css/bootstrap.css}" />
+    <link rel="stylesheet" id="css-app" th:href="@{/assets/css/app.css}" />
+    <link rel="stylesheet" id="css-app-custom" th:href="@{/assets/css/app-custom.css}" />
+</head>
+<body class="app-ui layout-has-drawer layout-has-fixed-header">
+<div class="container-fluid p-y-md">
+    <div class="row">
+        <div class="col-lg-5 col-lg-offset-3">
+            <!-- Material registration -->
+            <div class="card">
+                <div class="card-header bg-green bg-inverse">
+                    <h4>Material</h4>
+                    <ul class="card-actions">
+                        <li>
+                            <button type="button" data-toggle="card-action" data-action="refresh_toggle" data-action-mode="demo"><i class="ion-refresh"></i></button>
+                        </li>
+                        <li>
+                            <button type="button" data-toggle="card-action" data-action="content_toggle"></button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-block" th:each="u , v: ${user}">
+                    <form class="form-horizontal m-t-sm" action="/sysUser/modify" method="post" enctype="multipart/form-data" >
+                        <input type="hidden" th:value="${u.id}">
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <div class="form-material" >
+                                    <img src="/assets/img/photos/photo5.jpg" height="50px" width="40px">
+<!--                                    <label for="register2-username" src="/assets/img/photos/photo3.jpg">Photo</label>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <div class="form-material" >
+                                    <input class="form-control" type="text" id="newName" name="name" placeholder="Enter Account..."  th:value="${u.account}" readonly="readonly"/>
+                                    <label for="newName">Account</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <div class="form-material">
+                                    <input class="form-control" type="password" id="newPassword" name="password" placeholder="Enter password..." th:value="${u.password}" readonly="readonly"/>
+                                    <label for="newPassword">Password</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <div class="form-material" >
+                                    <input class="form-control" type="text" id="newUsername" name="name" placeholder="Enter name..."  th:value="${u.name}" readonly="readonly"/>
+                                    <label for="newUsername">Username</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="newRole" name="role" placeholder="Enter role..." th:value="${u.role==1?'普通用户':'管理员'}" readonly="readonly"/>
+                                    <label for="newRole" >Role</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group m-b-0">
+                            <div class="col-xs-12 col-xs-offset-4">
+                                <button class="btn btn-app-purple" type="button" id="sub">编辑</button>
+                                <button class="btn btn-app-green" type="submit">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- .card-block -->
+            </div>
+            <!-- .card -->
+            <!-- End Material registration -->
+        </div>
+        <!-- .col-lg-4 -->
+    </div>
+    <!-- .card-block -->
+</div>
+<!-- .card -->
+<!-- End Hover Table -->
+
+<!-- Normal Modal -->
+
+<!-- End Apps Modal -->
+<script src="/assets/js/core/jquery.min.js"></script>
+<script src="/assets/js/core/bootstrap.min.js"></script>
+<script src="/assets/js/core/jquery.slimscroll.min.js"></script>
+<script src="/assets/js/core/jquery.scrollLock.min.js"></script>
+<script src="/assets/js/core/jquery.placeholder.min.js"></script>
+<script src="/assets/js/app.js"></script>
+<script src="/assets/js/app-custom.js"></script>
+<!-- Page Plugins -->
+<script src="/assets/js/plugins/slick/slick.min.js"></script>
+<script src="/assets/js/plugins/chartjs/Chart.min.js"></script>
+<script src="/assets/js/plugins/flot/jquery.flot.min.js"></script>
+<script src="/assets/js/plugins/flot/jquery.flot.pie.min.js"></script>
+<script src="/assets/js/plugins/flot/jquery.flot.stack.min.js"></script>
+<script src="/assets/js/plugins/flot/jquery.flot.resize.min.js"></script>
+<script>
+    $(function(){
+        $("#sub").click(function (){
+            var flag = true;
+            alert(flag);
+            $("input[readonly=readonly]").attr("readonly",false);
+        });
+    });
+</script>
+</body>
+</html>

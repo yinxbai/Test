@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.jad.trainning.mapper.TeacherMapper">
+    <resultMap id="findTeacherMap" type="teacher">
+        <id column="id" property="id"></id>
+        <result column="account" property="account"></result>
+        <result column="password" property="password"></result>
+        <result column="name" property="name"></result>
+        <result column="role" property="role"></result>
+        <association property="clazz" column="clazz_id" javaType="clazz">
+            <id column="cid" property="id"></id>
+            <result column="cname" property="name"></result>
+        </association>
+    </resultMap>
+
+    <select id="findTeacherByAccountAndPassword" parameterType="teacher" resultMap="findTeacherMap">
+        select a.*,b.id cid, b.name bname from teacher a,clazz b where a.clazz_id=b.id and a.account=#{account} and a.password=#{password}
+    </select>
+
+    <update id="changePassword" parameterType="teacher">
+        update teacher set password=#{password} where id=#{id}
+    </update>
+
+    <select id="findAll" resultMap="findTeacherMap" >
+        select a.*,b.id cid, b.name cname from teacher a left join clazz b on a.clazz_id=b.id
+    </select>
+
+    <delete id="delete" parameterType="string">
+        delete from teacher where id=#{id}
+    </delete>
+
+    <insert id="save" parameterType="teacher">
+        insert into teacher(id,account,password,name,clazz_id,role)
+        values(#{id},#{account},#{password},#{name},#{clazz.id},#{role})
+    </insert>
+
+    <update id="update" parameterType="teacher">
+        update teacher set account=#{account},password=#{password},name=#{name},clazz_id=#{clazz.id},role=#{role}
+        where id=#{id}
+    </update>
+
+    <select id="findById" resultMap="findTeacherMap" parameterType="string">
+        select a.*,b.id cid, b.name cname from teacher a left join clazz b on a.clazz_id=b.id where a.id=#{id}
+    </select>
+</mapper>

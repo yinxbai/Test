@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jad.mapper.CustomerMapper">
+
+    <resultMap id="findCustomerMap" type="customer">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="sex" property="sex"></result>
+        <result column="birthday" property="birthday"></result>
+        <result column="email" property="email"></result>
+        <result column="telphone" property="telphone"></result>
+        <result column="address" property="address"></result>
+        <result column="sources" property="sources"></result>
+        <result column="description" property="description"></result>
+        <association property="city" column="city" javaType="city">
+            <id column="cid" property="id"></id>
+            <result column="cname" property="name"></result>
+        </association>
+    </resultMap>
+
+    <select id="findById" parameterType="String" resultMap="findCustomerMap">
+        select a.*,b.id cid,b.name cname from customer a left join city b on a.city = b.id where a.id=#{value}
+    </select>
+
+    <!--<select id="findAll" resultMap="findCustomerMap">
+        select a.*,b.id cid,b.name cname from customer a,city b where a.city=b.id
+    </select>-->
+
+    <select id="findAll" resultMap="findCustomerMap" parameterType="String">
+        select a.*,b.id cid,b.name cname from customer a,city b where a.city=b.id
+        <if test="#{search}!=null and #{search}!=''">
+            and (a.name like '%${search}%' or a.birthday like '%${search}%' or a.address like '%${search}%' or a.telphone like '%${search}%' or a.email like '%${search}%' or a.sources like '%${search}%' or a.description like '%${search}%')
+        </if>
+    </select>
+
+    <update id="update" parameterType="customer">
+        update CUSTOMER set NAME=#{name},SEX=#{sex},BIRTHDAY=#{birthday},ADDRESS=#{address},TELPHONE=#{telphone},EMAIL=#{email},city=#{city.id},SOURCES=#{sources},DESCRIPTION=#{description} where ID =#{id}
+    </update>
+
+    <insert id="save" parameterType="customer">
+        insert into CUSTOMER values(#{id},#{name},#{sex},#{birthday},#{address},#{telphone},#{email},#{city.id},#{sources},#{description})
+    </insert>
+
+    <delete id="deleteById" parameterType="String">
+        delete from CUSTOMER where id = #{id}
+    </delete>
+
+    <select id="findCount" resultType="int" parameterType="string">
+        select count(*) from CUSTOMER where city=#{cityId}
+    </select>
+
+</mapper>

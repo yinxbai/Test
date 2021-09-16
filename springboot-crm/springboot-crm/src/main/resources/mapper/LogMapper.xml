@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jad.aop.mapper.LogMapper">
+
+    <select id="findAll" resultType="hashMap">
+        select * from log order by CREATE_TIME desc
+    </select>
+
+    <insert id="save" parameterType="log">
+        insert into log values(#{id},#{user},#{url},#{ip},#{description},#{creatTime})
+    </insert>
+
+
+</mapper>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yq.mapper.StudentMapper">
+    <resultMap id="findStudentMap" type="student">
+        <id column="id" property="id"></id>
+        <result column="account" property="account"></result>
+        <result column="password" property="password"></result>
+        <result column="name" property="name"></result>
+        <result column="sex" property="sex"></result>
+        <result column="telephone" property="telephone"></result>
+        <result column="birthday" property="birthday"></result>
+        <association property="clazz" column="clazz_id" javaType="clazz">
+            <id column="cid" property="id"></id>
+            <result column="cname" property="name"></result>
+        </association>
+    </resultMap>
+    <select id="findStudentByAccountAndPassword" parameterType="student" resultMap="findStudentMap">
+        select a.*,b.id cid,b.name cname from student a,clazz b where a.clazz_id = b.id and account=#{account} and password=#{password}
+    </select>
+    <update id="changePassword" parameterType="student">
+        update student set password=#{password} where id=#{id}
+    </update>
+
+    <select id="findAll" resultMap="findStudentMap">
+        select a.*,b.id cid,b.name cname from student a,clazz b where a.clazz_id = b.id
+    </select>
+
+    <select id="findCount" resultType="int" parameterType="string">
+        select count(*) from student where clazz_id=#{clazzId}
+    </select>
+    <select id="info" resultType="com.yq.po.Student">
+        select *
+        from student;
+    </select>
+
+    <delete id="deleteById" parameterType="String">
+        delete from student where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="student">
+        update student set account=#{account},name=#{name},clazz_id=#{clazz.id},sex=#{sex},telphone=#{telphone},birthday=#{birthday} where ID =#{id}
+    </update>
+
+    <insert id="save" parameterType="student">
+        insert into student values(#{id},#{account},#{password},#{name},#{clazz.id},#{sex},#{telphone},#{birthday})
+    </insert>
+</mapper>

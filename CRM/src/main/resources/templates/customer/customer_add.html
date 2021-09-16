@@ -1,0 +1,196 @@
+<html lang="an" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>客户信息</title>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <meta name="description" content="AppUI - Admin Dashboard Template & UI Framework" />
+    <meta name="author" content="rustheme" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" th:href="@{/assets/img/favicons/apple-touch-icon.png}" />
+    <link rel="icon" th:href="@{/assets/img/favicons/favicon.ico}" />
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,900%7CRoboto+Slab:300,400%7CRoboto+Mono:400" />
+
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" th:href="@{/assets/js/plugins/slick/slick.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/js/plugins/slick/slick-theme.min.css}" />
+
+    <!-- AppUI CSS stylesheets -->
+    <link rel="stylesheet" id="css-font-awesome" th:href="@{/assets/css/font-awesome.css}" />
+    <link rel="stylesheet" id="css-ionicons" th:href="@{/assets/css/ionicons.css}" />
+    <link rel="stylesheet" id="css-bootstrap" th:href="@{/assets/css/bootstrap.css}" />
+    <link rel="stylesheet" id="css-app" th:href="@{/assets/css/app.css}" />
+    <link rel="stylesheet" id="css-app-custom" th:href="@{/assets/css/app-custom.css}" />
+</head>
+<body class="app-ui layout-has-drawer layout-has-fixed-header">
+<div class="container-fluid p-y-md">
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- Hover Table -->
+            <div class="card">
+                <div class="card-block">
+                    <p>
+                        <input  type="button" class="btn btn-danger" value="返回" onclick="javascript:history.go(-1)"/>
+                    </p>
+                    <form  th:action="@{save}" method="post" id="form">
+                        <input type="hidden" name="id" th:value="${id}">
+                        <table class="table table-hover">
+                            <tr >
+                                <td class="hidden-xs">姓名</td>
+                                <td><input type="text" name="name"></td>
+                            </tr>
+                            <tr>
+                                <td class="hidden-xs">性别</td>
+                                <td>
+                                    <div class="form-group">
+                                        <label for="man" class="css-input switch switch-sm switch-app">
+                                            <input type="radio" id="man" name="sex" value="1"  checked/><span></span> 男</a>
+                                        </label>&nbsp;&nbsp;
+                                        <label for="woman" class="css-input switch switch-sm switch-app">
+                                            <input type="radio" id="woman" name="sex" value="0" /><span></span> 女</a>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="hidden-xs">生日</td>
+                                <td><input type="date" name="birthday"></td>
+                            </tr>
+                            <tr>
+                                <td class="hidden-xs">地址</td>
+                                <td><input type="text" name="address"></td>
+                            </tr>
+                            <tr>
+                                <td class="hidden-xs">电话</td>
+                                <td><input type="text" name="telephone"></td>
+                            </tr>
+                            <tr>
+                                <td class="hidden-xs">邮箱</td>
+                                <td><input type="email" name="email"></td>
+                            </tr>
+                            <tr>
+                                <td class="hidden-xs">城市</td>
+                                <td>
+                                    <select name="CityId" id="sel">
+                                        <option th:value="-1">--请选择城市--</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="hidden-xs">来源</td>
+                                <td>
+                                    <label>
+                                        <select name="sources">
+                                            <option value="-1">--@来源@--</option>
+                                            <option value="主动上门">主动上门</option>
+                                            <option value="电话营销">电话营销</option>
+                                            <option value="主动上门">主动上门</option>
+                                        </select>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="hidden-xs">描述</td>
+                                <td><textarea  name="description"></textarea></td>
+                            </tr>
+                        </table>
+                        <button type="submit" class="btn btn-app btn-block" id="sub">提交</button>
+                    </form>
+
+
+                </div>
+                <!-- .card-block -->
+            </div>
+            <!-- .card -->
+            <!-- End Hover Table -->
+        </div>
+    </div>
+</div>
+
+<!-- Normal Modal -->
+
+<!--<div class="modal" id="modal-add" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-12">-->
+<!--                    <div class="card-header bg-green bg-inverse">-->
+<!--                        <h4>客户添加</h4>-->
+<!--                        <ul class="card-actions">-->
+<!--                            <li>-->
+<!--                                <button data-dismiss="modal" type="button" onclick="window.close()"><i class="ion-close"></i></button>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    <div class="card">-->
+<!--                        <div class="card-block">-->
+<!--                            <form class="js-validation-bootstrap form-horizontal" th:action="@{city/save}" method="post">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-md-4 control-label" for="name">CityName <span class="text-orange">*</span></label>-->
+<!--                                    <div class="col-md-7">-->
+<!--                                        <input class="form-control" type="text" id="name" name="name" placeholder="Choose a nice Name..." />-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="form-group m-b-0">-->
+<!--                                    <div class="col-md-8 col-md-offset-5">-->
+<!--                                        <button class="btn btn-app" type="submit" id="sum">保存</button>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; .card-block &ndash;&gt;-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; .card &ndash;&gt;-->
+<!--                    &lt;!&ndash; Bootstrap Forms Validation &ndash;&gt;-->
+<!--                </div>-->
+<!--                &lt;!&ndash; .card &ndash;&gt;-->
+<!--                &lt;!&ndash; End Material (floating) registration &ndash;&gt;-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!-- .col-lg-4 -->
+<!-- End Apps Modal -->
+<!-- End Apps Modal -->
+<script th:src="@{/assets/js/core/jquery.min.js}"></script>
+<script th:src="@{/assets/js/core/bootstrap.min.js}"></script>
+<script th:src="@{/assets/js/core/jquery.slimscroll.min.js}"></script>
+<script th:src="@{/assets/js/core/jquery.scrollLock.min.js}"></script>
+<script th:src="@{/assets/js/core/jquery.placeholder.min.js}"></script>
+<script th:src="@{/assets/js/app.js}"></script>
+<script th:src="@{/assets/js/app-custom.js}"></script>
+<!-- Page Plugins -->
+<script th:src="@{/assets/js/plugins/slick/slick.min.js}"></script>
+<script th:src="@{/assets/js/plugins/chartjs/Chart.min.js}"></script>
+<script th:src="@{/assets/js/plugins/flot/jquery.flot.min.js}"></script>
+<script th:src="@{/assets/js/plugins/flot/jquery.flot.pie.min.js}"></script>
+<script th:src="@{/assets/js/plugins/flot/jquery.flot.stack.min.js}"></script>
+<script th:src="@{/assets/js/plugins/flot/jquery.flot.resize.min.js}"></script>
+<script>
+    $(function (){
+        $("#sel").click(function (){
+           $.ajax({
+               url:"/city/getAll",
+               method:"get",
+               datatype:"json",
+               contentType:"text/json,charset=utf-8",
+               success:function (data){
+                   var datas = JSON.parse(data);
+                    // $("#sel").find('option').remove();
+                    // $("#sel").append("<option value='-1'>--请选择城市--</option>");
+                    $.each(datas,function (index,item){
+                        $("#sel").append("<option value='"+item.id+"'>"+item.name+"</option>");
+                   });
+               }
+           });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.jad.trainning.mapper.StudentMapper">
+    <resultMap id="studentMap" type="student">
+        <id column="id" property="id"></id>
+        <result column="account" property="account"></result>
+        <result column="password" property="password"></result>
+        <result column="name" property="name"></result>
+        <result column="sex" property="sex"></result>
+        <result column="telphone" property="telphone"></result>
+        <result column="birthday" property="birthday"></result>
+        <association property="clazz" column="clazz_id" javaType="clazz">
+            <id column="cid" property="id"></id>
+            <result column="cname" property="name"></result>
+        </association>
+    </resultMap>
+
+    <resultMap id="courseResourceMap" type="courseResource">
+        <id column="id" property="id"></id>
+        <result column="title" property="title"></result>
+        <result column="ppt_url" property="pptUrl"></result>
+        <result column="ppt_filename" property="pptFileName"></result>
+        <result column="video_url" property="videoUrl"></result>
+        <result column="video_filename" property="videoFileName"></result>
+        <result column="exercise_url" property="exerciseUrl"></result>
+        <result column="exercise_filename" property="exerciseFileName"></result>
+        <result column="create_time" property="createTime"></result>
+        <association column="createror" property="createror" javaType="Teacher">
+            <id column="tid" property="id"></id>
+            <result column="name" property="name"></result>
+        </association>
+    </resultMap>
+
+
+    <select id="findStudentByAccountAndPassword" parameterType="student" resultMap="studentMap">
+        select a.*,b.id cid, b.name cname from student a,clazz b where a.clazz_id=b.id and a.account=#{account} and a.password=#{password}
+    </select>
+
+    <update id="changePassword" parameterType="student">
+        update student set password=#{password} where id=#{id}
+    </update>
+
+    <select id="findCourseResourceByStudent"  parameterType="string" resultMap="courseResourceMap">
+        select a.* from course_resource a,student b,teacher c
+        where a.CREATEROR=c.id and b.CLAZZ_ID=c.CLAZZ_ID
+          and b.id=#{studentId}
+    </select>
+
+    <select id="findStudentByTeaacher" parameterType="string" resultMap="studentMap">
+        select a.*,b.id cid, b.name cname from student a,clazz b,teacher c
+        where a.clazz_id=b.id and b.id=c.clazz_id and c.id=#{id}
+    </select>
+
+    <insert id="save" parameterType="student">
+        insert into student(id,account,password,name,sex,birthday,telphone,clazz_id)
+        values(#{id},#{account},#{password},#{name},#{sex},#{birthday},#{telphone},#{clazz.id})
+    </insert>
+
+    <select id="findAll" resultMap="studentMap">
+        select a.*,b.id cid, b.name cname from student a left join clazz b on a.clazz_id=b.id
+    </select>
+
+    <select id="findExerciseCoruseResourceByStudent" parameterType="string" resultType="hashMap">
+        select a.title, a.ppt_filename,a.ppt_url,a.exercise_filename,a.exercise_url,b.id,b.doc,b.score,b.create_time submitTime
+        from course_resource a left join exercise b on a.id=b.course_resource_id
+            and b.student_id=#{studentId}
+    </select>
+
+    <update id="update" parameterType="student">
+        update student set account=#{account},password=#{password},name=#{name},telphone=#{telphone},birthday=#{birthday},sex=#{sex},clazz_id=#{clazz.id}
+        where id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="string">
+        delete from student where id=#{id}
+    </delete>
+
+    <select id="findById" parameterType="string" resultMap="studentMap">
+        select a.*,b.id cid, b.name cname from student a left join clazz b on a.clazz_id=b.id where a.id=#{id}
+    </select>
+</mapper>

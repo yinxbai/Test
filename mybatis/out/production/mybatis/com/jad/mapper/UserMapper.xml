@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jad.mapper.UserMapper">
+    <resultMap id="userMap" type="user">
+        <result property="id" column="id"></result>
+        <result property="number" column="number"></result>
+        <result property="name" column="name"></result>
+        <result property="gender" column="gender"></result>
+        <result property="age" column="age"></result>
+<!--        <result property="role" column="role_id"></result>-->
+    </resultMap>
+    <resultMap id="queryListMap" type="user">
+        <id column="id" property="id"></id>
+        <result column="number" property="name"></result>
+        <result column="name" property="name"></result>
+        <result column="gender" property="gender"></result>
+        <result column="age" property="age"></result>
+        <association column="cityId" property="city" >
+            <result column="cid" property="id"></result>
+            <result column="cname" property="name"></result>
+        </association>
+
+    </resultMap>
+    <sql id="query">
+        <where>
+            <if test="#{name!=null}">
+                and name like '%${name}%'
+            </if>
+            <if test="#{age!=null}">
+                and age like '%${age}%'
+            </if>
+        </where>
+    </sql>
+    <select id="findUserById"  resultMap="userMap">
+        select * from user where id=#{id}
+    </select>
+    <select id="findByName" parameterType="String" resultType="user">
+        select * from user where name like '%${name}%'
+    </select>
+    <insert id="save" parameterType="user">
+        insert into user (id,number,name,gender,age) values(#{id},#{number},#{name},#{gender},#{age})
+    </insert>
+    <delete id="deleteById" parameterType="user">
+        delete from user where id=#{id}
+    </delete>
+    <select id="findAll" resultType="user" >
+        select * from user
+    </select>
+    <update id="update" parameterType="user" >
+        update user set name=#{name}  where id=#{id}
+    </update>
+    <select id="search" resultType="user">
+        select * from  user 
+        <include refid="query"></include>
+    </select>
+    <select id="queryList" resultMap="queryListMap" >
+        select a.*, c.id cid,c.name cname from user a left join city c on a.cityid = c.id
+    </select>
+    <select id="queryCity" resultType="com.jad.po.City" parameterType="int">
+        select * from city where id=#{id}
+/*        select a.*, c.id cid,c.name cname from user a,city c where a.cityId = c.id*/
+/*--         select a.*, c.id cid,c.name cname from user a inner join city c on a.cityId = c.id/**/*/
+    </select>
+</mapper>

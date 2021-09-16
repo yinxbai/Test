@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.txdata.modules.daily.dao.TasktypeDao">
+
+    <resultMap type="com.txdata.modules.daily.entity.Tasktype" id="TasktypeMap">
+        <result property="id" column="Id" jdbcType="VARCHAR"/>
+        <result property="name" column="Name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap id="task" type="com.txdata.modules.daily.entity.Tasktype">
+        <result property="name" column="name" />
+        <collection property="dailyTasks" column="id" ofType="com.txdata.modules.daily.entity.DailyTask">
+            <id property="dailyTaskType" column="taskType" />
+        </collection>
+        <collection property="dailyArranges" column="id" ofType="com.txdata.modules.daily.entity.DailyArrange">
+            <id property="dailyTaskType" column="arrangeType" />
+        </collection>
+     </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="TasktypeMap">
+        select Id,
+               Name
+        from txdata.t_tasktype
+        where Id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="TasktypeMap">
+        select Id,
+               Name
+        from txdata.t_tasktype limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="TasktypeMap">
+        select
+        Id, Name
+        from txdata.t_tasktype
+        <where>
+            <if test="id != null and id != ''">
+                and Id = #{id}
+            </if>
+            <if test="name != null and name != ''">
+                and Name = #{name}
+            </if>
+        </where>
+    </select>
+    <select id="getList" resultType="com.txdata.modules.daily.entity.Tasktype">
+        SELECT a.id,a.name FROM t_tasktype as a
+    </select>
+    <select id="queryByTaskOrArrange" resultMap="task">
+        select a.name
+        from t_daily_arrange as c,t_daily_task as b
+            left join t_tasktype as a
+                on c.daily_task_type = a.id or b.daily_task_type = a.id
+        where a.id = #{id}
+
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into txdata.t_tasktype(Name)
+        values (#{name})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into txdata.t_tasktype(Name)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.name})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into txdata.t_tasktype(Name)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.name})
+        </foreach>
+        on duplicate key update
+        Name = values(Name)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update txdata.t_tasktype
+        <set>
+            <if test="name != null and name != ''">
+                Name = #{name},
+            </if>
+        </set>
+        where Id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from txdata.t_tasktype
+        where Id = #{id}
+    </delete>
+
+</mapper>
+
